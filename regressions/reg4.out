@@ -1,0 +1,240 @@
+
+R version 3.3.0 (2016-05-03) -- "Supposedly Educational"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> options(stringsAsFactors=FALSE)
+> rm(list = ls())
+> constrainedfbsplays = read.csv("constrainedfbsplays.csv")
+> 
+> # reg model using run/pass and home-team-on-offense
+> reg4= lm(constrainedfbsplays$allCEP~constrainedfbsplays$Play.Type3 + as.factor(constrainedfbsplays$Home.On.Offense)*as.factor(constrainedfbsplays$Season))
+> summary(reg4)
+
+Call:
+lm(formula = constrainedfbsplays$allCEP ~ constrainedfbsplays$Play.Type3 + 
+    as.factor(constrainedfbsplays$Home.On.Offense) * as.factor(constrainedfbsplays$Season))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.1410  -0.5225   0.0242   0.8339  12.3641 
+
+Coefficients:
+                                                                                          Estimate
+(Intercept)                                                                               -0.20391
+constrainedfbsplays$Play.Type3RUSH                                                        -0.09572
+as.factor(constrainedfbsplays$Home.On.Offense)0                                           -0.02775
+as.factor(constrainedfbsplays$Home.On.Offense)1                                           -0.01784
+as.factor(constrainedfbsplays$Season)2006                                                 -0.05549
+as.factor(constrainedfbsplays$Season)2007                                                 -0.04513
+as.factor(constrainedfbsplays$Season)2008                                                 -0.03886
+as.factor(constrainedfbsplays$Season)2009                                                 -0.03578
+as.factor(constrainedfbsplays$Season)2010                                                 -0.01289
+as.factor(constrainedfbsplays$Season)2011                                                 -0.03662
+as.factor(constrainedfbsplays$Season)2012                                                 -0.01112
+as.factor(constrainedfbsplays$Season)2013                                                 -0.01277
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2006  0.04243
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2006  0.04712
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2007  0.03293
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2007  0.04695
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2008  0.03007
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2008  0.04386
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2009  0.03546
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2009  0.04279
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2010  0.02057
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2010  0.02059
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2011  0.04351
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2011  0.04443
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2012  0.01564
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2012  0.02784
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2013  0.01985
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2013  0.03907
+                                                                                          Std. Error
+(Intercept)                                                                                  0.02586
+constrainedfbsplays$Play.Type3RUSH                                                           0.00406
+as.factor(constrainedfbsplays$Home.On.Offense)0                                              0.02733
+as.factor(constrainedfbsplays$Home.On.Offense)1                                              0.02731
+as.factor(constrainedfbsplays$Season)2006                                                    0.03511
+as.factor(constrainedfbsplays$Season)2007                                                    0.03481
+as.factor(constrainedfbsplays$Season)2008                                                    0.03415
+as.factor(constrainedfbsplays$Season)2009                                                    0.03474
+as.factor(constrainedfbsplays$Season)2010                                                    0.03355
+as.factor(constrainedfbsplays$Season)2011                                                    0.03349
+as.factor(constrainedfbsplays$Season)2012                                                    0.04745
+as.factor(constrainedfbsplays$Season)2013                                                    0.03322
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2006    0.03742
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2006    0.03740
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2007    0.03700
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2007    0.03697
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2008    0.03648
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2008    0.03644
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2009    0.03703
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2009    0.03700
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2010    0.03590
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2010    0.03588
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2011    0.03584
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2011    0.03579
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2012    0.04910
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2012    0.04908
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2013    0.03552
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2013    0.03550
+                                                                                          t value
+(Intercept)                                                                                -7.886
+constrainedfbsplays$Play.Type3RUSH                                                        -23.573
+as.factor(constrainedfbsplays$Home.On.Offense)0                                            -1.015
+as.factor(constrainedfbsplays$Home.On.Offense)1                                            -0.653
+as.factor(constrainedfbsplays$Season)2006                                                  -1.581
+as.factor(constrainedfbsplays$Season)2007                                                  -1.297
+as.factor(constrainedfbsplays$Season)2008                                                  -1.138
+as.factor(constrainedfbsplays$Season)2009                                                  -1.030
+as.factor(constrainedfbsplays$Season)2010                                                  -0.384
+as.factor(constrainedfbsplays$Season)2011                                                  -1.093
+as.factor(constrainedfbsplays$Season)2012                                                  -0.234
+as.factor(constrainedfbsplays$Season)2013                                                  -0.384
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2006   1.134
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2006   1.260
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2007   0.890
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2007   1.270
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2008   0.824
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2008   1.203
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2009   0.958
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2009   1.156
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2010   0.573
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2010   0.574
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2011   1.214
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2011   1.242
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2012   0.319
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2012   0.567
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2013   0.559
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2013   1.101
+                                                                                          Pr(>|t|)
+(Intercept)                                                                               3.13e-15
+constrainedfbsplays$Play.Type3RUSH                                                         < 2e-16
+as.factor(constrainedfbsplays$Home.On.Offense)0                                              0.310
+as.factor(constrainedfbsplays$Home.On.Offense)1                                              0.514
+as.factor(constrainedfbsplays$Season)2006                                                    0.114
+as.factor(constrainedfbsplays$Season)2007                                                    0.195
+as.factor(constrainedfbsplays$Season)2008                                                    0.255
+as.factor(constrainedfbsplays$Season)2009                                                    0.303
+as.factor(constrainedfbsplays$Season)2010                                                    0.701
+as.factor(constrainedfbsplays$Season)2011                                                    0.274
+as.factor(constrainedfbsplays$Season)2012                                                    0.815
+as.factor(constrainedfbsplays$Season)2013                                                    0.701
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2006    0.257
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2006    0.208
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2007    0.373
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2007    0.204
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2008    0.410
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2008    0.229
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2009    0.338
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2009    0.247
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2010    0.567
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2010    0.566
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2011    0.225
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2011    0.214
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2012    0.750
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2012    0.571
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2013    0.576
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2013    0.271
+                                                                                             
+(Intercept)                                                                               ***
+constrainedfbsplays$Play.Type3RUSH                                                        ***
+as.factor(constrainedfbsplays$Home.On.Offense)0                                              
+as.factor(constrainedfbsplays$Home.On.Offense)1                                              
+as.factor(constrainedfbsplays$Season)2006                                                    
+as.factor(constrainedfbsplays$Season)2007                                                    
+as.factor(constrainedfbsplays$Season)2008                                                    
+as.factor(constrainedfbsplays$Season)2009                                                    
+as.factor(constrainedfbsplays$Season)2010                                                    
+as.factor(constrainedfbsplays$Season)2011                                                    
+as.factor(constrainedfbsplays$Season)2012                                                    
+as.factor(constrainedfbsplays$Season)2013                                                    
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2006    
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2006    
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2007    
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2007    
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2008    
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2008    
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2009    
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2009    
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2010    
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2010    
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2011    
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2011    
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2012    
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2012    
+as.factor(constrainedfbsplays$Home.On.Offense)0:as.factor(constrainedfbsplays$Season)2013    
+as.factor(constrainedfbsplays$Home.On.Offense)1:as.factor(constrainedfbsplays$Season)2013    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.759 on 752064 degrees of freedom
+Multiple R-squared:  0.0007881,	Adjusted R-squared:  0.0007522 
+F-statistic: 21.97 on 27 and 752064 DF,  p-value: < 2.2e-16
+
+> 
+> anova(reg4)
+Analysis of Variance Table
+
+Response: constrainedfbsplays$allCEP
+                                                                                         Df
+constrainedfbsplays$Play.Type3                                                            1
+as.factor(constrainedfbsplays$Home.On.Offense)                                            2
+as.factor(constrainedfbsplays$Season)                                                     8
+as.factor(constrainedfbsplays$Home.On.Offense):as.factor(constrainedfbsplays$Season)     16
+Residuals                                                                            752064
+                                                                                      Sum Sq
+constrainedfbsplays$Play.Type3                                                          1706
+as.factor(constrainedfbsplays$Home.On.Offense)                                            62
+as.factor(constrainedfbsplays$Season)                                                     52
+as.factor(constrainedfbsplays$Home.On.Offense):as.factor(constrainedfbsplays$Season)      16
+Residuals                                                                            2327078
+                                                                                     Mean Sq
+constrainedfbsplays$Play.Type3                                                       1706.26
+as.factor(constrainedfbsplays$Home.On.Offense)                                         30.76
+as.factor(constrainedfbsplays$Season)                                                   6.45
+as.factor(constrainedfbsplays$Home.On.Offense):as.factor(constrainedfbsplays$Season)    1.00
+Residuals                                                                               3.09
+                                                                                      F value
+constrainedfbsplays$Play.Type3                                                       551.4300
+as.factor(constrainedfbsplays$Home.On.Offense)                                         9.9411
+as.factor(constrainedfbsplays$Season)                                                  2.0843
+as.factor(constrainedfbsplays$Home.On.Offense):as.factor(constrainedfbsplays$Season)   0.3220
+Residuals                                                                                    
+                                                                                        Pr(>F)
+constrainedfbsplays$Play.Type3                                                       < 2.2e-16
+as.factor(constrainedfbsplays$Home.On.Offense)                                       4.816e-05
+as.factor(constrainedfbsplays$Season)                                                  0.03368
+as.factor(constrainedfbsplays$Home.On.Offense):as.factor(constrainedfbsplays$Season)   0.99494
+Residuals                                                                                     
+                                                                                        
+constrainedfbsplays$Play.Type3                                                       ***
+as.factor(constrainedfbsplays$Home.On.Offense)                                       ***
+as.factor(constrainedfbsplays$Season)                                                *  
+as.factor(constrainedfbsplays$Home.On.Offense):as.factor(constrainedfbsplays$Season)    
+Residuals                                                                               
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> #be sure to put save command on every file, to keep the regression we generate in BASH
+> save.image("~/Fellow2016.RData")
+> 
+> proc.time()
+   user  system elapsed 
+ 13.136 170.583 889.467 

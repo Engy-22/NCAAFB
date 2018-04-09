@@ -1,0 +1,184 @@
+
+R version 3.3.0 (2016-05-03) -- "Supposedly Educational"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> options(stringsAsFactors=FALSE)
+> rm(list = ls())
+> constrainedfbsplays = read.csv("constrainedfbsplays.csv")
+> 
+> #regressional model with CEP predicted by run/pass interaction with season
+> reg2= lm(constrainedfbsplays$allCEP~constrainedfbsplays$Play.Type3*as.factor(constrainedfbsplays$Season))
+> summary(reg2)
+
+Call:
+lm(formula = constrainedfbsplays$allCEP ~ constrainedfbsplays$Play.Type3 * 
+    as.factor(constrainedfbsplays$Season))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.1293  -0.5227   0.0241   0.8335  12.3692 
+
+Coefficients:
+                                                                              Estimate
+(Intercept)                                                                  -0.223645
+constrainedfbsplays$Play.Type3RUSH                                           -0.098994
+as.factor(constrainedfbsplays$Season)2006                                    -0.024997
+as.factor(constrainedfbsplays$Season)2007                                    -0.015028
+as.factor(constrainedfbsplays$Season)2008                                    -0.008011
+as.factor(constrainedfbsplays$Season)2009                                     0.007276
+as.factor(constrainedfbsplays$Season)2010                                     0.005145
+as.factor(constrainedfbsplays$Season)2011                                     0.013437
+as.factor(constrainedfbsplays$Season)2012                                     0.006441
+as.factor(constrainedfbsplays$Season)2013                                     0.009426
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2006  0.021952
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2007  0.014593
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2008  0.007304
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2009 -0.012275
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2010  0.002646
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2011 -0.017423
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2012  0.005635
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2013  0.010353
+                                                                             Std. Error
+(Intercept)                                                                    0.008980
+constrainedfbsplays$Play.Type3RUSH                                             0.012443
+as.factor(constrainedfbsplays$Season)2006                                      0.012772
+as.factor(constrainedfbsplays$Season)2007                                      0.012333
+as.factor(constrainedfbsplays$Season)2008                                      0.012605
+as.factor(constrainedfbsplays$Season)2009                                      0.012599
+as.factor(constrainedfbsplays$Season)2010                                      0.012589
+as.factor(constrainedfbsplays$Season)2011                                      0.012494
+as.factor(constrainedfbsplays$Season)2012                                      0.012561
+as.factor(constrainedfbsplays$Season)2013                                      0.012379
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2006   0.017701
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2007   0.017171
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2008   0.017476
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2009   0.017480
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2010   0.017409
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2011   0.017326
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2012   0.017450
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2013   0.017148
+                                                                             t value
+(Intercept)                                                                  -24.906
+constrainedfbsplays$Play.Type3RUSH                                            -7.956
+as.factor(constrainedfbsplays$Season)2006                                     -1.957
+as.factor(constrainedfbsplays$Season)2007                                     -1.219
+as.factor(constrainedfbsplays$Season)2008                                     -0.636
+as.factor(constrainedfbsplays$Season)2009                                      0.578
+as.factor(constrainedfbsplays$Season)2010                                      0.409
+as.factor(constrainedfbsplays$Season)2011                                      1.075
+as.factor(constrainedfbsplays$Season)2012                                      0.513
+as.factor(constrainedfbsplays$Season)2013                                      0.761
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2006   1.240
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2007   0.850
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2008   0.418
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2009  -0.702
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2010   0.152
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2011  -1.006
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2012   0.323
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2013   0.604
+                                                                             Pr(>|t|)
+(Intercept)                                                                   < 2e-16
+constrainedfbsplays$Play.Type3RUSH                                           1.78e-15
+as.factor(constrainedfbsplays$Season)2006                                      0.0503
+as.factor(constrainedfbsplays$Season)2007                                      0.2230
+as.factor(constrainedfbsplays$Season)2008                                      0.5251
+as.factor(constrainedfbsplays$Season)2009                                      0.5636
+as.factor(constrainedfbsplays$Season)2010                                      0.6828
+as.factor(constrainedfbsplays$Season)2011                                      0.2822
+as.factor(constrainedfbsplays$Season)2012                                      0.6081
+as.factor(constrainedfbsplays$Season)2013                                      0.4464
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2006   0.2149
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2007   0.3954
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2008   0.6760
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2009   0.4825
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2010   0.8792
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2011   0.3146
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2012   0.7468
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2013   0.5460
+                                                                                
+(Intercept)                                                                  ***
+constrainedfbsplays$Play.Type3RUSH                                           ***
+as.factor(constrainedfbsplays$Season)2006                                    .  
+as.factor(constrainedfbsplays$Season)2007                                       
+as.factor(constrainedfbsplays$Season)2008                                       
+as.factor(constrainedfbsplays$Season)2009                                       
+as.factor(constrainedfbsplays$Season)2010                                       
+as.factor(constrainedfbsplays$Season)2011                                       
+as.factor(constrainedfbsplays$Season)2012                                       
+as.factor(constrainedfbsplays$Season)2013                                       
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2006    
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2007    
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2008    
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2009    
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2010    
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2011    
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2012    
+constrainedfbsplays$Play.Type3RUSH:as.factor(constrainedfbsplays$Season)2013    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.759 on 752074 degrees of freedom
+Multiple R-squared:  0.0007658,	Adjusted R-squared:  0.0007432 
+F-statistic:  33.9 on 17 and 752074 DF,  p-value: < 2.2e-16
+
+> 
+> anova(reg2)
+Analysis of Variance Table
+
+Response: constrainedfbsplays$allCEP
+                                                                         Df
+constrainedfbsplays$Play.Type3                                            1
+as.factor(constrainedfbsplays$Season)                                     8
+constrainedfbsplays$Play.Type3:as.factor(constrainedfbsplays$Season)      8
+Residuals                                                            752074
+                                                                      Sum Sq
+constrainedfbsplays$Play.Type3                                          1706
+as.factor(constrainedfbsplays$Season)                                     52
+constrainedfbsplays$Play.Type3:as.factor(constrainedfbsplays$Season)      25
+Residuals                                                            2327129
+                                                                     Mean Sq
+constrainedfbsplays$Play.Type3                                       1706.26
+as.factor(constrainedfbsplays$Season)                                   6.45
+constrainedfbsplays$Play.Type3:as.factor(constrainedfbsplays$Season)    3.19
+Residuals                                                               3.09
+                                                                      F value
+constrainedfbsplays$Play.Type3                                       551.4250
+as.factor(constrainedfbsplays$Season)                                  2.0854
+constrainedfbsplays$Play.Type3:as.factor(constrainedfbsplays$Season)   1.0296
+Residuals                                                                    
+                                                                      Pr(>F)
+constrainedfbsplays$Play.Type3                                       < 2e-16
+as.factor(constrainedfbsplays$Season)                                0.03358
+constrainedfbsplays$Play.Type3:as.factor(constrainedfbsplays$Season) 0.41072
+Residuals                                                                   
+                                                                        
+constrainedfbsplays$Play.Type3                                       ***
+as.factor(constrainedfbsplays$Season)                                *  
+constrainedfbsplays$Play.Type3:as.factor(constrainedfbsplays$Season)    
+Residuals                                                               
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> #be sure to put save command on every file, to keep the regression we generate in BASH
+> save.image("~/Fellow2016.RData")
+> 
+> proc.time()
+   user  system elapsed 
+ 13.629 186.230 952.304 

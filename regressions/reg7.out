@@ -1,0 +1,1321 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> options(stringsAsFactors=FALSE)
+> rm(list = ls())
+> 
+> constrainedfbsplays = read.csv("constrainedfbsplays.csv")
+> 
+> #
+> reg7= lm(constrainedfbsplays$allCEP~as.factor(constrainedfbsplays$Home.On.Offense) + as.factor(constrainedfbsplays$Offense.Team.Name) + as.factor(constrainedfbsplays$Defense.Team.Name))
+> 
+> summary(reg7)
+
+Call:
+lm(formula = constrainedfbsplays$allCEP ~ as.factor(constrainedfbsplays$Home.On.Offense) + 
+    as.factor(constrainedfbsplays$Offense.Team.Name) + as.factor(constrainedfbsplays$Defense.Team.Name))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.2067  -0.5108   0.0048   0.8269  12.2730 
+
+Coefficients:
+                                                                       Estimate
+(Intercept)                                                          -0.1999701
+as.factor(constrainedfbsplays$Home.On.Offense)0                       0.0070363
+as.factor(constrainedfbsplays$Home.On.Offense)1                       0.0181127
+as.factor(constrainedfbsplays$Offense.Team.Name)Akron                -0.0649511
+as.factor(constrainedfbsplays$Offense.Team.Name)Alabama              -0.0033400
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona              -0.0133849
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona St.          -0.0140328
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas              0.0178508
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas St.         -0.0272151
+as.factor(constrainedfbsplays$Offense.Team.Name)Army                 -0.0796383
+as.factor(constrainedfbsplays$Offense.Team.Name)Auburn                0.0163450
+as.factor(constrainedfbsplays$Offense.Team.Name)Ball St.             -0.0216529
+as.factor(constrainedfbsplays$Offense.Team.Name)Baylor                0.0050168
+as.factor(constrainedfbsplays$Offense.Team.Name)Boise St.            -0.0287178
+as.factor(constrainedfbsplays$Offense.Team.Name)Boston College       -0.0520783
+as.factor(constrainedfbsplays$Offense.Team.Name)Bowling Green        -0.0509719
+as.factor(constrainedfbsplays$Offense.Team.Name)Buffalo              -0.0631522
+as.factor(constrainedfbsplays$Offense.Team.Name)BYU                  -0.0016990
+as.factor(constrainedfbsplays$Offense.Team.Name)California           -0.0197877
+as.factor(constrainedfbsplays$Offense.Team.Name)Central Mich.         0.0002601
+as.factor(constrainedfbsplays$Offense.Team.Name)Cincinnati           -0.0201311
+as.factor(constrainedfbsplays$Offense.Team.Name)Clemson               0.0002186
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado             -0.0274982
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado St.         -0.0415906
+as.factor(constrainedfbsplays$Offense.Team.Name)Connecticut          -0.0636027
+as.factor(constrainedfbsplays$Offense.Team.Name)Duke                 -0.0577871
+as.factor(constrainedfbsplays$Offense.Team.Name)East Carolina        -0.0025699
+as.factor(constrainedfbsplays$Offense.Team.Name)Eastern Mich.        -0.0890301
+as.factor(constrainedfbsplays$Offense.Team.Name)FIU                  -0.0769317
+as.factor(constrainedfbsplays$Offense.Team.Name)Fla. Atlantic        -0.0452259
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida               0.0175877
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida St.           0.0140684
+as.factor(constrainedfbsplays$Offense.Team.Name)Fresno St.           -0.0185003
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia               0.0095414
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia Tech         -0.0227378
+as.factor(constrainedfbsplays$Offense.Team.Name)Hawaii               -0.0305031
+as.factor(constrainedfbsplays$Offense.Team.Name)Houston               0.0447810
+as.factor(constrainedfbsplays$Offense.Team.Name)Idaho                -0.0410084
+as.factor(constrainedfbsplays$Offense.Team.Name)Illinois              0.0015160
+as.factor(constrainedfbsplays$Offense.Team.Name)Indiana              -0.0421473
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa                 -0.0029848
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa St.             -0.0537010
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas               -0.0371267
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas St.           -0.0210313
+as.factor(constrainedfbsplays$Offense.Team.Name)Kent St.             -0.0881422
+as.factor(constrainedfbsplays$Offense.Team.Name)Kentucky             -0.0276091
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Lafayette        -0.0329869
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Monroe           -0.0193183
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisiana Tech       -0.0574201
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisville           -0.0070590
+as.factor(constrainedfbsplays$Offense.Team.Name)LSU                   0.0173056
+as.factor(constrainedfbsplays$Offense.Team.Name)Marshall             -0.0432748
+as.factor(constrainedfbsplays$Offense.Team.Name)Maryland             -0.0635084
+as.factor(constrainedfbsplays$Offense.Team.Name)Massachusetts        -0.1063976
+as.factor(constrainedfbsplays$Offense.Team.Name)Memphis              -0.0560153
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (FL)           -0.0626777
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (OH)           -0.0500413
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan             -0.0421138
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan St.         -0.0138417
+as.factor(constrainedfbsplays$Offense.Team.Name)Middle Tenn.         -0.0615203
+as.factor(constrainedfbsplays$Offense.Team.Name)Minnesota            -0.0345275
+as.factor(constrainedfbsplays$Offense.Team.Name)Mississippi St.      -0.0570925
+as.factor(constrainedfbsplays$Offense.Team.Name)Missouri              0.0227334
+as.factor(constrainedfbsplays$Offense.Team.Name)Navy                 -0.0286320
+as.factor(constrainedfbsplays$Offense.Team.Name)Nebraska             -0.0002775
+as.factor(constrainedfbsplays$Offense.Team.Name)Nevada                0.0217737
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico           -0.0551466
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico St.       -0.0707491
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina       -0.0475826
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina St.   -0.0510789
+as.factor(constrainedfbsplays$Offense.Team.Name)North Texas          -0.0822014
+as.factor(constrainedfbsplays$Offense.Team.Name)Northern Ill.        -0.0020465
+as.factor(constrainedfbsplays$Offense.Team.Name)Northwestern         -0.0046043
+as.factor(constrainedfbsplays$Offense.Team.Name)Notre Dame            0.0036136
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio                 -0.0504863
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio St.              0.0079209
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma              0.0248862
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma St.         -0.0027816
+as.factor(constrainedfbsplays$Offense.Team.Name)Ole Miss              0.0005930
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon                0.0340628
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon St.           -0.0490066
+as.factor(constrainedfbsplays$Offense.Team.Name)Penn St.             -0.0322550
+as.factor(constrainedfbsplays$Offense.Team.Name)Pittsburgh           -0.0415230
+as.factor(constrainedfbsplays$Offense.Team.Name)Purdue               -0.0475383
+as.factor(constrainedfbsplays$Offense.Team.Name)Rice                 -0.0300335
+as.factor(constrainedfbsplays$Offense.Team.Name)Rutgers              -0.0267732
+as.factor(constrainedfbsplays$Offense.Team.Name)San Diego St.        -0.0243753
+as.factor(constrainedfbsplays$Offense.Team.Name)San Jose St.         -0.0143626
+as.factor(constrainedfbsplays$Offense.Team.Name)SMU                  -0.0374120
+as.factor(constrainedfbsplays$Offense.Team.Name)South Ala.           -0.0203314
+as.factor(constrainedfbsplays$Offense.Team.Name)South Carolina       -0.0243313
+as.factor(constrainedfbsplays$Offense.Team.Name)South Fla.           -0.0425836
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern California  -0.0037594
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern Miss.       -0.0186379
+as.factor(constrainedfbsplays$Offense.Team.Name)Stanford              0.0135159
+as.factor(constrainedfbsplays$Offense.Team.Name)Syracuse             -0.0311153
+as.factor(constrainedfbsplays$Offense.Team.Name)TCU                  -0.0355956
+as.factor(constrainedfbsplays$Offense.Team.Name)Temple               -0.0709433
+as.factor(constrainedfbsplays$Offense.Team.Name)Tennessee            -0.0369976
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas                -0.0242064
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas A&M             0.0626225
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas St.            -0.0516798
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas Tech            0.0433107
+as.factor(constrainedfbsplays$Offense.Team.Name)Toledo               -0.0245200
+as.factor(constrainedfbsplays$Offense.Team.Name)Troy                 -0.0311331
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulane               -0.0723516
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulsa                -0.0305542
+as.factor(constrainedfbsplays$Offense.Team.Name)UAB                  -0.0257250
+as.factor(constrainedfbsplays$Offense.Team.Name)UCF                  -0.0278574
+as.factor(constrainedfbsplays$Offense.Team.Name)UCLA                 -0.0422755
+as.factor(constrainedfbsplays$Offense.Team.Name)UNLV                 -0.0530494
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah                 -0.0483336
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah St.             -0.0262386
+as.factor(constrainedfbsplays$Offense.Team.Name)UTEP                 -0.0344815
+as.factor(constrainedfbsplays$Offense.Team.Name)UTSA                  0.0031617
+as.factor(constrainedfbsplays$Offense.Team.Name)Vanderbilt           -0.0742975
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia             -0.0301144
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia Tech        -0.0186454
+as.factor(constrainedfbsplays$Offense.Team.Name)Wake Forest          -0.0433157
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington           -0.0108458
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington St.       -0.0470730
+as.factor(constrainedfbsplays$Offense.Team.Name)West Virginia        -0.0056062
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Ky.          -0.0379995
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Mich.        -0.0567415
+as.factor(constrainedfbsplays$Offense.Team.Name)Wisconsin            -0.0111401
+as.factor(constrainedfbsplays$Offense.Team.Name)Wyoming              -0.0285809
+as.factor(constrainedfbsplays$Defense.Team.Name)Akron                -0.0330566
+as.factor(constrainedfbsplays$Defense.Team.Name)Alabama              -0.1357263
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona              -0.0705277
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona St.          -0.0926729
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas             -0.0878667
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas St.         -0.0448567
+as.factor(constrainedfbsplays$Defense.Team.Name)Army                 -0.0201468
+as.factor(constrainedfbsplays$Defense.Team.Name)Auburn               -0.0863395
+as.factor(constrainedfbsplays$Defense.Team.Name)Ball St.              0.0095429
+as.factor(constrainedfbsplays$Defense.Team.Name)Baylor               -0.0447031
+as.factor(constrainedfbsplays$Defense.Team.Name)Boise St.            -0.0773279
+as.factor(constrainedfbsplays$Defense.Team.Name)Boston College       -0.0735295
+as.factor(constrainedfbsplays$Defense.Team.Name)Bowling Green        -0.0432080
+as.factor(constrainedfbsplays$Defense.Team.Name)Buffalo              -0.0606656
+as.factor(constrainedfbsplays$Defense.Team.Name)BYU                  -0.0638829
+as.factor(constrainedfbsplays$Defense.Team.Name)California           -0.0686945
+as.factor(constrainedfbsplays$Defense.Team.Name)Central Mich.        -0.0097802
+as.factor(constrainedfbsplays$Defense.Team.Name)Cincinnati           -0.0847137
+as.factor(constrainedfbsplays$Defense.Team.Name)Clemson              -0.0794688
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado             -0.0620608
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado St.         -0.0294811
+as.factor(constrainedfbsplays$Defense.Team.Name)Connecticut          -0.0986055
+as.factor(constrainedfbsplays$Defense.Team.Name)Duke                 -0.0326723
+as.factor(constrainedfbsplays$Defense.Team.Name)East Carolina        -0.0664306
+as.factor(constrainedfbsplays$Defense.Team.Name)Eastern Mich.        -0.0156514
+as.factor(constrainedfbsplays$Defense.Team.Name)FIU                  -0.1004790
+as.factor(constrainedfbsplays$Defense.Team.Name)Fla. Atlantic        -0.0398112
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida              -0.1003112
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida St.          -0.0849839
+as.factor(constrainedfbsplays$Defense.Team.Name)Fresno St.           -0.0429670
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia              -0.0943112
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia Tech         -0.0585575
+as.factor(constrainedfbsplays$Defense.Team.Name)Hawaii               -0.0544232
+as.factor(constrainedfbsplays$Defense.Team.Name)Houston              -0.0235275
+as.factor(constrainedfbsplays$Defense.Team.Name)Idaho                -0.0710640
+as.factor(constrainedfbsplays$Defense.Team.Name)Illinois             -0.0892222
+as.factor(constrainedfbsplays$Defense.Team.Name)Indiana              -0.0380467
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa                 -0.0597709
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa St.             -0.0599729
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas               -0.0830184
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas St.           -0.0590352
+as.factor(constrainedfbsplays$Defense.Team.Name)Kent St.             -0.0704187
+as.factor(constrainedfbsplays$Defense.Team.Name)Kentucky             -0.0377349
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Lafayette        -0.0225620
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Monroe           -0.0643272
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisiana Tech       -0.0627261
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisville           -0.0618763
+as.factor(constrainedfbsplays$Defense.Team.Name)LSU                  -0.0830668
+as.factor(constrainedfbsplays$Defense.Team.Name)Marshall             -0.0395973
+as.factor(constrainedfbsplays$Defense.Team.Name)Maryland             -0.0406178
+as.factor(constrainedfbsplays$Defense.Team.Name)Massachusetts         0.0005628
+as.factor(constrainedfbsplays$Defense.Team.Name)Memphis              -0.0234449
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (FL)           -0.0446742
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (OH)           -0.0507121
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan             -0.0493122
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan St.         -0.0882608
+as.factor(constrainedfbsplays$Defense.Team.Name)Middle Tenn.         -0.0505791
+as.factor(constrainedfbsplays$Defense.Team.Name)Minnesota            -0.0287261
+as.factor(constrainedfbsplays$Defense.Team.Name)Mississippi St.      -0.0920470
+as.factor(constrainedfbsplays$Defense.Team.Name)Missouri             -0.0782802
+as.factor(constrainedfbsplays$Defense.Team.Name)Navy                 -0.0215825
+as.factor(constrainedfbsplays$Defense.Team.Name)Nebraska             -0.0991280
+as.factor(constrainedfbsplays$Defense.Team.Name)Nevada               -0.0446112
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico           -0.0388138
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico St.       -0.0750804
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina       -0.0517870
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina St.   -0.0726570
+as.factor(constrainedfbsplays$Defense.Team.Name)North Texas          -0.0474574
+as.factor(constrainedfbsplays$Defense.Team.Name)Northern Ill.        -0.0496824
+as.factor(constrainedfbsplays$Defense.Team.Name)Northwestern         -0.0580519
+as.factor(constrainedfbsplays$Defense.Team.Name)Notre Dame           -0.0425101
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio                 -0.0441691
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio St.             -0.0778651
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma             -0.0993226
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma St.         -0.0814166
+as.factor(constrainedfbsplays$Defense.Team.Name)Ole Miss             -0.0854119
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon               -0.1212209
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon St.           -0.0692758
+as.factor(constrainedfbsplays$Defense.Team.Name)Penn St.             -0.0805543
+as.factor(constrainedfbsplays$Defense.Team.Name)Pittsburgh           -0.0703502
+as.factor(constrainedfbsplays$Defense.Team.Name)Purdue               -0.0559019
+as.factor(constrainedfbsplays$Defense.Team.Name)Rice                  0.0056074
+as.factor(constrainedfbsplays$Defense.Team.Name)Rutgers              -0.0950781
+as.factor(constrainedfbsplays$Defense.Team.Name)San Diego St.        -0.0347747
+as.factor(constrainedfbsplays$Defense.Team.Name)San Jose St.         -0.0533367
+as.factor(constrainedfbsplays$Defense.Team.Name)SMU                  -0.0447088
+as.factor(constrainedfbsplays$Defense.Team.Name)South Ala.           -0.0264341
+as.factor(constrainedfbsplays$Defense.Team.Name)South Carolina       -0.1005954
+as.factor(constrainedfbsplays$Defense.Team.Name)South Fla.           -0.0800282
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern California  -0.0746026
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern Miss.       -0.0734245
+as.factor(constrainedfbsplays$Defense.Team.Name)Stanford             -0.0520490
+as.factor(constrainedfbsplays$Defense.Team.Name)Syracuse             -0.0463843
+as.factor(constrainedfbsplays$Defense.Team.Name)TCU                  -0.1221483
+as.factor(constrainedfbsplays$Defense.Team.Name)Temple               -0.0137461
+as.factor(constrainedfbsplays$Defense.Team.Name)Tennessee            -0.0478204
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas                -0.0942619
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas A&M            -0.0733521
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas St.            -0.0586870
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas Tech           -0.0589696
+as.factor(constrainedfbsplays$Defense.Team.Name)Toledo               -0.0734601
+as.factor(constrainedfbsplays$Defense.Team.Name)Troy                 -0.0481880
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulane               -0.0225228
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulsa                -0.0827179
+as.factor(constrainedfbsplays$Defense.Team.Name)UAB                  -0.0304539
+as.factor(constrainedfbsplays$Defense.Team.Name)UCF                  -0.0350589
+as.factor(constrainedfbsplays$Defense.Team.Name)UCLA                 -0.0796733
+as.factor(constrainedfbsplays$Defense.Team.Name)UNLV                 -0.0194123
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah                 -0.0767314
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah St.             -0.0544956
+as.factor(constrainedfbsplays$Defense.Team.Name)UTEP                 -0.0110512
+as.factor(constrainedfbsplays$Defense.Team.Name)UTSA                 -0.0592453
+as.factor(constrainedfbsplays$Defense.Team.Name)Vanderbilt           -0.0818110
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia             -0.0544628
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia Tech        -0.0871560
+as.factor(constrainedfbsplays$Defense.Team.Name)Wake Forest          -0.0393343
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington           -0.0343773
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington St.       -0.0536318
+as.factor(constrainedfbsplays$Defense.Team.Name)West Virginia        -0.0733752
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Ky.          -0.0285790
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Mich.        -0.0520895
+as.factor(constrainedfbsplays$Defense.Team.Name)Wisconsin            -0.0538751
+as.factor(constrainedfbsplays$Defense.Team.Name)Wyoming              -0.0616324
+                                                                     Std. Error
+(Intercept)                                                           0.0337167
+as.factor(constrainedfbsplays$Home.On.Offense)0                       0.0086505
+as.factor(constrainedfbsplays$Home.On.Offense)1                       0.0086426
+as.factor(constrainedfbsplays$Offense.Team.Name)Akron                 0.0335035
+as.factor(constrainedfbsplays$Offense.Team.Name)Alabama               0.0331173
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona               0.0327586
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona St.           0.0325956
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas              0.0335787
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas St.          0.0333394
+as.factor(constrainedfbsplays$Offense.Team.Name)Army                  0.0335100
+as.factor(constrainedfbsplays$Offense.Team.Name)Auburn                0.0331457
+as.factor(constrainedfbsplays$Offense.Team.Name)Ball St.              0.0331549
+as.factor(constrainedfbsplays$Offense.Team.Name)Baylor                0.0329457
+as.factor(constrainedfbsplays$Offense.Team.Name)Boise St.             0.0317363
+as.factor(constrainedfbsplays$Offense.Team.Name)Boston College        0.0328145
+as.factor(constrainedfbsplays$Offense.Team.Name)Bowling Green         0.0328076
+as.factor(constrainedfbsplays$Offense.Team.Name)Buffalo               0.0333515
+as.factor(constrainedfbsplays$Offense.Team.Name)BYU                   0.0311623
+as.factor(constrainedfbsplays$Offense.Team.Name)California            0.0330403
+as.factor(constrainedfbsplays$Offense.Team.Name)Central Mich.         0.0329523
+as.factor(constrainedfbsplays$Offense.Team.Name)Cincinnati            0.0332259
+as.factor(constrainedfbsplays$Offense.Team.Name)Clemson               0.0329443
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado              0.0324742
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado St.          0.0325778
+as.factor(constrainedfbsplays$Offense.Team.Name)Connecticut           0.0334672
+as.factor(constrainedfbsplays$Offense.Team.Name)Duke                  0.0335831
+as.factor(constrainedfbsplays$Offense.Team.Name)East Carolina         0.0323148
+as.factor(constrainedfbsplays$Offense.Team.Name)Eastern Mich.         0.0338878
+as.factor(constrainedfbsplays$Offense.Team.Name)FIU                   0.0335136
+as.factor(constrainedfbsplays$Offense.Team.Name)Fla. Atlantic         0.0333509
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida               0.0332905
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida St.           0.0330332
+as.factor(constrainedfbsplays$Offense.Team.Name)Fresno St.            0.0323464
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia               0.0333026
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia Tech          0.0331641
+as.factor(constrainedfbsplays$Offense.Team.Name)Hawaii                0.0321945
+as.factor(constrainedfbsplays$Offense.Team.Name)Houston               0.0319216
+as.factor(constrainedfbsplays$Offense.Team.Name)Idaho                 0.0328586
+as.factor(constrainedfbsplays$Offense.Team.Name)Illinois              0.0333753
+as.factor(constrainedfbsplays$Offense.Team.Name)Indiana               0.0334432
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa                  0.0333858
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa St.              0.0329442
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas                0.0330434
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas St.            0.0334557
+as.factor(constrainedfbsplays$Offense.Team.Name)Kent St.              0.0338507
+as.factor(constrainedfbsplays$Offense.Team.Name)Kentucky              0.0336648
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Lafayette         0.0337750
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Monroe            0.0337315
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisiana Tech        0.0323084
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisville            0.0333225
+as.factor(constrainedfbsplays$Offense.Team.Name)LSU                   0.0330379
+as.factor(constrainedfbsplays$Offense.Team.Name)Marshall              0.0330942
+as.factor(constrainedfbsplays$Offense.Team.Name)Maryland              0.0337077
+as.factor(constrainedfbsplays$Offense.Team.Name)Massachusetts         0.0493455
+as.factor(constrainedfbsplays$Offense.Team.Name)Memphis               0.0335875
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (FL)            0.0336073
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (OH)            0.0329650
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan              0.0326770
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan St.          0.0326250
+as.factor(constrainedfbsplays$Offense.Team.Name)Middle Tenn.          0.0330424
+as.factor(constrainedfbsplays$Offense.Team.Name)Minnesota             0.0333351
+as.factor(constrainedfbsplays$Offense.Team.Name)Mississippi St.       0.0337627
+as.factor(constrainedfbsplays$Offense.Team.Name)Missouri              0.0319344
+as.factor(constrainedfbsplays$Offense.Team.Name)Navy                  0.0327688
+as.factor(constrainedfbsplays$Offense.Team.Name)Nebraska              0.0322080
+as.factor(constrainedfbsplays$Offense.Team.Name)Nevada                0.0314765
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico            0.0323094
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico St.        0.0328118
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina        0.0337408
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina St.    0.0334298
+as.factor(constrainedfbsplays$Offense.Team.Name)North Texas           0.0329170
+as.factor(constrainedfbsplays$Offense.Team.Name)Northern Ill.         0.0330970
+as.factor(constrainedfbsplays$Offense.Team.Name)Northwestern          0.0326259
+as.factor(constrainedfbsplays$Offense.Team.Name)Notre Dame            0.0320807
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio                  0.0333236
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio St.              0.0326905
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma              0.0315088
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma St.          0.0324829
+as.factor(constrainedfbsplays$Offense.Team.Name)Ole Miss              0.0337855
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon                0.0320793
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon St.            0.0327121
+as.factor(constrainedfbsplays$Offense.Team.Name)Penn St.              0.0326920
+as.factor(constrainedfbsplays$Offense.Team.Name)Pittsburgh            0.0336330
+as.factor(constrainedfbsplays$Offense.Team.Name)Purdue                0.0331167
+as.factor(constrainedfbsplays$Offense.Team.Name)Rice                  0.0322173
+as.factor(constrainedfbsplays$Offense.Team.Name)Rutgers               0.0335266
+as.factor(constrainedfbsplays$Offense.Team.Name)San Diego St.         0.0323455
+as.factor(constrainedfbsplays$Offense.Team.Name)San Jose St.          0.0331297
+as.factor(constrainedfbsplays$Offense.Team.Name)SMU                   0.0330378
+as.factor(constrainedfbsplays$Offense.Team.Name)South Ala.            0.0527070
+as.factor(constrainedfbsplays$Offense.Team.Name)South Carolina        0.0333761
+as.factor(constrainedfbsplays$Offense.Team.Name)South Fla.            0.0334346
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern California   0.0322267
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern Miss.        0.0324579
+as.factor(constrainedfbsplays$Offense.Team.Name)Stanford              0.0329739
+as.factor(constrainedfbsplays$Offense.Team.Name)Syracuse              0.0335717
+as.factor(constrainedfbsplays$Offense.Team.Name)TCU                   0.0313866
+as.factor(constrainedfbsplays$Offense.Team.Name)Temple                0.0337151
+as.factor(constrainedfbsplays$Offense.Team.Name)Tennessee             0.0332856
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas                 0.0318459
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas A&M             0.0320785
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas St.             0.0500206
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas Tech            0.0320094
+as.factor(constrainedfbsplays$Offense.Team.Name)Toledo                0.0330453
+as.factor(constrainedfbsplays$Offense.Team.Name)Troy                  0.0326288
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulane                0.0331870
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulsa                 0.0317435
+as.factor(constrainedfbsplays$Offense.Team.Name)UAB                   0.0335166
+as.factor(constrainedfbsplays$Offense.Team.Name)UCF                   0.0328215
+as.factor(constrainedfbsplays$Offense.Team.Name)UCLA                  0.0321862
+as.factor(constrainedfbsplays$Offense.Team.Name)UNLV                  0.0324322
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah                  0.0319396
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah St.              0.0325472
+as.factor(constrainedfbsplays$Offense.Team.Name)UTEP                  0.0331614
+as.factor(constrainedfbsplays$Offense.Team.Name)UTSA                  0.0565683
+as.factor(constrainedfbsplays$Offense.Team.Name)Vanderbilt            0.0337965
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia              0.0333472
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia Tech         0.0327771
+as.factor(constrainedfbsplays$Offense.Team.Name)Wake Forest           0.0332254
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington            0.0329544
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington St.        0.0330525
+as.factor(constrainedfbsplays$Offense.Team.Name)West Virginia         0.0331345
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Ky.           0.0368678
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Mich.         0.0333380
+as.factor(constrainedfbsplays$Offense.Team.Name)Wisconsin             0.0328267
+as.factor(constrainedfbsplays$Offense.Team.Name)Wyoming               0.0321708
+as.factor(constrainedfbsplays$Defense.Team.Name)Akron                 0.0333199
+as.factor(constrainedfbsplays$Defense.Team.Name)Alabama               0.0339645
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona               0.0331775
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona St.           0.0332229
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas              0.0336668
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas St.          0.0337234
+as.factor(constrainedfbsplays$Defense.Team.Name)Army                  0.0340361
+as.factor(constrainedfbsplays$Defense.Team.Name)Auburn                0.0333281
+as.factor(constrainedfbsplays$Defense.Team.Name)Ball St.              0.0331746
+as.factor(constrainedfbsplays$Defense.Team.Name)Baylor                0.0326908
+as.factor(constrainedfbsplays$Defense.Team.Name)Boise St.             0.0324238
+as.factor(constrainedfbsplays$Defense.Team.Name)Boston College        0.0328626
+as.factor(constrainedfbsplays$Defense.Team.Name)Bowling Green         0.0333241
+as.factor(constrainedfbsplays$Defense.Team.Name)Buffalo               0.0335576
+as.factor(constrainedfbsplays$Defense.Team.Name)BYU                   0.0323238
+as.factor(constrainedfbsplays$Defense.Team.Name)California            0.0329788
+as.factor(constrainedfbsplays$Defense.Team.Name)Central Mich.         0.0330545
+as.factor(constrainedfbsplays$Defense.Team.Name)Cincinnati            0.0334079
+as.factor(constrainedfbsplays$Defense.Team.Name)Clemson               0.0333275
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado              0.0327989
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado St.          0.0325041
+as.factor(constrainedfbsplays$Defense.Team.Name)Connecticut           0.0337760
+as.factor(constrainedfbsplays$Defense.Team.Name)Duke                  0.0337356
+as.factor(constrainedfbsplays$Defense.Team.Name)East Carolina         0.0327447
+as.factor(constrainedfbsplays$Defense.Team.Name)Eastern Mich.         0.0341732
+as.factor(constrainedfbsplays$Defense.Team.Name)FIU                   0.0332930
+as.factor(constrainedfbsplays$Defense.Team.Name)Fla. Atlantic         0.0333439
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida               0.0337542
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida St.           0.0332512
+as.factor(constrainedfbsplays$Defense.Team.Name)Fresno St.            0.0326414
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia               0.0335653
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia Tech          0.0338393
+as.factor(constrainedfbsplays$Defense.Team.Name)Hawaii                0.0322257
+as.factor(constrainedfbsplays$Defense.Team.Name)Houston               0.0322186
+as.factor(constrainedfbsplays$Defense.Team.Name)Idaho                 0.0329053
+as.factor(constrainedfbsplays$Defense.Team.Name)Illinois              0.0336377
+as.factor(constrainedfbsplays$Defense.Team.Name)Indiana               0.0335308
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa                  0.0333468
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa St.              0.0332009
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas                0.0333307
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas St.            0.0333061
+as.factor(constrainedfbsplays$Defense.Team.Name)Kent St.              0.0337389
+as.factor(constrainedfbsplays$Defense.Team.Name)Kentucky              0.0337669
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Lafayette         0.0338516
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Monroe            0.0340670
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisiana Tech        0.0324372
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisville            0.0341016
+as.factor(constrainedfbsplays$Defense.Team.Name)LSU                   0.0334285
+as.factor(constrainedfbsplays$Defense.Team.Name)Marshall              0.0332773
+as.factor(constrainedfbsplays$Defense.Team.Name)Maryland              0.0334025
+as.factor(constrainedfbsplays$Defense.Team.Name)Massachusetts         0.0485070
+as.factor(constrainedfbsplays$Defense.Team.Name)Memphis               0.0334656
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (FL)            0.0334652
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (OH)            0.0334295
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan              0.0331779
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan St.          0.0332691
+as.factor(constrainedfbsplays$Defense.Team.Name)Middle Tenn.          0.0330871
+as.factor(constrainedfbsplays$Defense.Team.Name)Minnesota             0.0334881
+as.factor(constrainedfbsplays$Defense.Team.Name)Mississippi St.       0.0338920
+as.factor(constrainedfbsplays$Defense.Team.Name)Missouri              0.0322755
+as.factor(constrainedfbsplays$Defense.Team.Name)Navy                  0.0331388
+as.factor(constrainedfbsplays$Defense.Team.Name)Nebraska              0.0325007
+as.factor(constrainedfbsplays$Defense.Team.Name)Nevada                0.0326476
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico            0.0322654
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico St.        0.0329520
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina        0.0336099
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina St.    0.0338461
+as.factor(constrainedfbsplays$Defense.Team.Name)North Texas           0.0333099
+as.factor(constrainedfbsplays$Defense.Team.Name)Northern Ill.         0.0330743
+as.factor(constrainedfbsplays$Defense.Team.Name)Northwestern          0.0332049
+as.factor(constrainedfbsplays$Defense.Team.Name)Notre Dame            0.0326527
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio                  0.0331907
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio St.              0.0331536
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma              0.0324237
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma St.          0.0324436
+as.factor(constrainedfbsplays$Defense.Team.Name)Ole Miss              0.0339072
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon                0.0323332
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon St.            0.0332459
+as.factor(constrainedfbsplays$Defense.Team.Name)Penn St.              0.0332950
+as.factor(constrainedfbsplays$Defense.Team.Name)Pittsburgh            0.0337979
+as.factor(constrainedfbsplays$Defense.Team.Name)Purdue                0.0331304
+as.factor(constrainedfbsplays$Defense.Team.Name)Rice                  0.0327789
+as.factor(constrainedfbsplays$Defense.Team.Name)Rutgers               0.0337575
+as.factor(constrainedfbsplays$Defense.Team.Name)San Diego St.         0.0320967
+as.factor(constrainedfbsplays$Defense.Team.Name)San Jose St.          0.0329905
+as.factor(constrainedfbsplays$Defense.Team.Name)SMU                   0.0327400
+as.factor(constrainedfbsplays$Defense.Team.Name)South Ala.            0.0544263
+as.factor(constrainedfbsplays$Defense.Team.Name)South Carolina        0.0337370
+as.factor(constrainedfbsplays$Defense.Team.Name)South Fla.            0.0338664
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern California   0.0326263
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern Miss.        0.0328311
+as.factor(constrainedfbsplays$Defense.Team.Name)Stanford              0.0330155
+as.factor(constrainedfbsplays$Defense.Team.Name)Syracuse              0.0336508
+as.factor(constrainedfbsplays$Defense.Team.Name)TCU                   0.0326266
+as.factor(constrainedfbsplays$Defense.Team.Name)Temple                0.0332728
+as.factor(constrainedfbsplays$Defense.Team.Name)Tennessee             0.0334669
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas                 0.0325787
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas A&M             0.0325690
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas St.             0.0485942
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas Tech            0.0327065
+as.factor(constrainedfbsplays$Defense.Team.Name)Toledo                0.0335086
+as.factor(constrainedfbsplays$Defense.Team.Name)Troy                  0.0332054
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulane                0.0334223
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulsa                 0.0323709
+as.factor(constrainedfbsplays$Defense.Team.Name)UAB                   0.0335677
+as.factor(constrainedfbsplays$Defense.Team.Name)UCF                   0.0329969
+as.factor(constrainedfbsplays$Defense.Team.Name)UCLA                  0.0323179
+as.factor(constrainedfbsplays$Defense.Team.Name)UNLV                  0.0322590
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah                  0.0320911
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah St.              0.0325394
+as.factor(constrainedfbsplays$Defense.Team.Name)UTEP                  0.0327591
+as.factor(constrainedfbsplays$Defense.Team.Name)UTSA                  0.0565814
+as.factor(constrainedfbsplays$Defense.Team.Name)Vanderbilt            0.0336331
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia              0.0334748
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia Tech         0.0335991
+as.factor(constrainedfbsplays$Defense.Team.Name)Wake Forest           0.0332224
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington            0.0330100
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington St.        0.0330249
+as.factor(constrainedfbsplays$Defense.Team.Name)West Virginia         0.0332069
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Ky.           0.0369366
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Mich.         0.0336925
+as.factor(constrainedfbsplays$Defense.Team.Name)Wisconsin             0.0335084
+as.factor(constrainedfbsplays$Defense.Team.Name)Wyoming               0.0322642
+                                                                     t value
+(Intercept)                                                           -5.931
+as.factor(constrainedfbsplays$Home.On.Offense)0                        0.813
+as.factor(constrainedfbsplays$Home.On.Offense)1                        2.096
+as.factor(constrainedfbsplays$Offense.Team.Name)Akron                 -1.939
+as.factor(constrainedfbsplays$Offense.Team.Name)Alabama               -0.101
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona               -0.409
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona St.           -0.431
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas               0.532
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas St.          -0.816
+as.factor(constrainedfbsplays$Offense.Team.Name)Army                  -2.377
+as.factor(constrainedfbsplays$Offense.Team.Name)Auburn                 0.493
+as.factor(constrainedfbsplays$Offense.Team.Name)Ball St.              -0.653
+as.factor(constrainedfbsplays$Offense.Team.Name)Baylor                 0.152
+as.factor(constrainedfbsplays$Offense.Team.Name)Boise St.             -0.905
+as.factor(constrainedfbsplays$Offense.Team.Name)Boston College        -1.587
+as.factor(constrainedfbsplays$Offense.Team.Name)Bowling Green         -1.554
+as.factor(constrainedfbsplays$Offense.Team.Name)Buffalo               -1.894
+as.factor(constrainedfbsplays$Offense.Team.Name)BYU                   -0.055
+as.factor(constrainedfbsplays$Offense.Team.Name)California            -0.599
+as.factor(constrainedfbsplays$Offense.Team.Name)Central Mich.          0.008
+as.factor(constrainedfbsplays$Offense.Team.Name)Cincinnati            -0.606
+as.factor(constrainedfbsplays$Offense.Team.Name)Clemson                0.007
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado              -0.847
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado St.          -1.277
+as.factor(constrainedfbsplays$Offense.Team.Name)Connecticut           -1.900
+as.factor(constrainedfbsplays$Offense.Team.Name)Duke                  -1.721
+as.factor(constrainedfbsplays$Offense.Team.Name)East Carolina         -0.080
+as.factor(constrainedfbsplays$Offense.Team.Name)Eastern Mich.         -2.627
+as.factor(constrainedfbsplays$Offense.Team.Name)FIU                   -2.296
+as.factor(constrainedfbsplays$Offense.Team.Name)Fla. Atlantic         -1.356
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida                0.528
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida St.            0.426
+as.factor(constrainedfbsplays$Offense.Team.Name)Fresno St.            -0.572
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia                0.287
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia Tech          -0.686
+as.factor(constrainedfbsplays$Offense.Team.Name)Hawaii                -0.947
+as.factor(constrainedfbsplays$Offense.Team.Name)Houston                1.403
+as.factor(constrainedfbsplays$Offense.Team.Name)Idaho                 -1.248
+as.factor(constrainedfbsplays$Offense.Team.Name)Illinois               0.045
+as.factor(constrainedfbsplays$Offense.Team.Name)Indiana               -1.260
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa                  -0.089
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa St.              -1.630
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas                -1.124
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas St.            -0.629
+as.factor(constrainedfbsplays$Offense.Team.Name)Kent St.              -2.604
+as.factor(constrainedfbsplays$Offense.Team.Name)Kentucky              -0.820
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Lafayette         -0.977
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Monroe            -0.573
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisiana Tech        -1.777
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisville            -0.212
+as.factor(constrainedfbsplays$Offense.Team.Name)LSU                    0.524
+as.factor(constrainedfbsplays$Offense.Team.Name)Marshall              -1.308
+as.factor(constrainedfbsplays$Offense.Team.Name)Maryland              -1.884
+as.factor(constrainedfbsplays$Offense.Team.Name)Massachusetts         -2.156
+as.factor(constrainedfbsplays$Offense.Team.Name)Memphis               -1.668
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (FL)            -1.865
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (OH)            -1.518
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan              -1.289
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan St.          -0.424
+as.factor(constrainedfbsplays$Offense.Team.Name)Middle Tenn.          -1.862
+as.factor(constrainedfbsplays$Offense.Team.Name)Minnesota             -1.036
+as.factor(constrainedfbsplays$Offense.Team.Name)Mississippi St.       -1.691
+as.factor(constrainedfbsplays$Offense.Team.Name)Missouri               0.712
+as.factor(constrainedfbsplays$Offense.Team.Name)Navy                  -0.874
+as.factor(constrainedfbsplays$Offense.Team.Name)Nebraska              -0.009
+as.factor(constrainedfbsplays$Offense.Team.Name)Nevada                 0.692
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico            -1.707
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico St.        -2.156
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina        -1.410
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina St.    -1.528
+as.factor(constrainedfbsplays$Offense.Team.Name)North Texas           -2.497
+as.factor(constrainedfbsplays$Offense.Team.Name)Northern Ill.         -0.062
+as.factor(constrainedfbsplays$Offense.Team.Name)Northwestern          -0.141
+as.factor(constrainedfbsplays$Offense.Team.Name)Notre Dame             0.113
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio                  -1.515
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio St.               0.242
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma               0.790
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma St.          -0.086
+as.factor(constrainedfbsplays$Offense.Team.Name)Ole Miss               0.018
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon                 1.062
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon St.            -1.498
+as.factor(constrainedfbsplays$Offense.Team.Name)Penn St.              -0.987
+as.factor(constrainedfbsplays$Offense.Team.Name)Pittsburgh            -1.235
+as.factor(constrainedfbsplays$Offense.Team.Name)Purdue                -1.435
+as.factor(constrainedfbsplays$Offense.Team.Name)Rice                  -0.932
+as.factor(constrainedfbsplays$Offense.Team.Name)Rutgers               -0.799
+as.factor(constrainedfbsplays$Offense.Team.Name)San Diego St.         -0.754
+as.factor(constrainedfbsplays$Offense.Team.Name)San Jose St.          -0.434
+as.factor(constrainedfbsplays$Offense.Team.Name)SMU                   -1.132
+as.factor(constrainedfbsplays$Offense.Team.Name)South Ala.            -0.386
+as.factor(constrainedfbsplays$Offense.Team.Name)South Carolina        -0.729
+as.factor(constrainedfbsplays$Offense.Team.Name)South Fla.            -1.274
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern California   -0.117
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern Miss.        -0.574
+as.factor(constrainedfbsplays$Offense.Team.Name)Stanford               0.410
+as.factor(constrainedfbsplays$Offense.Team.Name)Syracuse              -0.927
+as.factor(constrainedfbsplays$Offense.Team.Name)TCU                   -1.134
+as.factor(constrainedfbsplays$Offense.Team.Name)Temple                -2.104
+as.factor(constrainedfbsplays$Offense.Team.Name)Tennessee             -1.112
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas                 -0.760
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas A&M              1.952
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas St.             -1.033
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas Tech             1.353
+as.factor(constrainedfbsplays$Offense.Team.Name)Toledo                -0.742
+as.factor(constrainedfbsplays$Offense.Team.Name)Troy                  -0.954
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulane                -2.180
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulsa                 -0.963
+as.factor(constrainedfbsplays$Offense.Team.Name)UAB                   -0.768
+as.factor(constrainedfbsplays$Offense.Team.Name)UCF                   -0.849
+as.factor(constrainedfbsplays$Offense.Team.Name)UCLA                  -1.313
+as.factor(constrainedfbsplays$Offense.Team.Name)UNLV                  -1.636
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah                  -1.513
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah St.              -0.806
+as.factor(constrainedfbsplays$Offense.Team.Name)UTEP                  -1.040
+as.factor(constrainedfbsplays$Offense.Team.Name)UTSA                   0.056
+as.factor(constrainedfbsplays$Offense.Team.Name)Vanderbilt            -2.198
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia              -0.903
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia Tech         -0.569
+as.factor(constrainedfbsplays$Offense.Team.Name)Wake Forest           -1.304
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington            -0.329
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington St.        -1.424
+as.factor(constrainedfbsplays$Offense.Team.Name)West Virginia         -0.169
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Ky.           -1.031
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Mich.         -1.702
+as.factor(constrainedfbsplays$Offense.Team.Name)Wisconsin             -0.339
+as.factor(constrainedfbsplays$Offense.Team.Name)Wyoming               -0.888
+as.factor(constrainedfbsplays$Defense.Team.Name)Akron                 -0.992
+as.factor(constrainedfbsplays$Defense.Team.Name)Alabama               -3.996
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona               -2.126
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona St.           -2.789
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas              -2.610
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas St.          -1.330
+as.factor(constrainedfbsplays$Defense.Team.Name)Army                  -0.592
+as.factor(constrainedfbsplays$Defense.Team.Name)Auburn                -2.591
+as.factor(constrainedfbsplays$Defense.Team.Name)Ball St.               0.288
+as.factor(constrainedfbsplays$Defense.Team.Name)Baylor                -1.367
+as.factor(constrainedfbsplays$Defense.Team.Name)Boise St.             -2.385
+as.factor(constrainedfbsplays$Defense.Team.Name)Boston College        -2.237
+as.factor(constrainedfbsplays$Defense.Team.Name)Bowling Green         -1.297
+as.factor(constrainedfbsplays$Defense.Team.Name)Buffalo               -1.808
+as.factor(constrainedfbsplays$Defense.Team.Name)BYU                   -1.976
+as.factor(constrainedfbsplays$Defense.Team.Name)California            -2.083
+as.factor(constrainedfbsplays$Defense.Team.Name)Central Mich.         -0.296
+as.factor(constrainedfbsplays$Defense.Team.Name)Cincinnati            -2.536
+as.factor(constrainedfbsplays$Defense.Team.Name)Clemson               -2.384
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado              -1.892
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado St.          -0.907
+as.factor(constrainedfbsplays$Defense.Team.Name)Connecticut           -2.919
+as.factor(constrainedfbsplays$Defense.Team.Name)Duke                  -0.968
+as.factor(constrainedfbsplays$Defense.Team.Name)East Carolina         -2.029
+as.factor(constrainedfbsplays$Defense.Team.Name)Eastern Mich.         -0.458
+as.factor(constrainedfbsplays$Defense.Team.Name)FIU                   -3.018
+as.factor(constrainedfbsplays$Defense.Team.Name)Fla. Atlantic         -1.194
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida               -2.972
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida St.           -2.556
+as.factor(constrainedfbsplays$Defense.Team.Name)Fresno St.            -1.316
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia               -2.810
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia Tech          -1.730
+as.factor(constrainedfbsplays$Defense.Team.Name)Hawaii                -1.689
+as.factor(constrainedfbsplays$Defense.Team.Name)Houston               -0.730
+as.factor(constrainedfbsplays$Defense.Team.Name)Idaho                 -2.160
+as.factor(constrainedfbsplays$Defense.Team.Name)Illinois              -2.652
+as.factor(constrainedfbsplays$Defense.Team.Name)Indiana               -1.135
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa                  -1.792
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa St.              -1.806
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas                -2.491
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas St.            -1.773
+as.factor(constrainedfbsplays$Defense.Team.Name)Kent St.              -2.087
+as.factor(constrainedfbsplays$Defense.Team.Name)Kentucky              -1.118
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Lafayette         -0.666
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Monroe            -1.888
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisiana Tech        -1.934
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisville            -1.814
+as.factor(constrainedfbsplays$Defense.Team.Name)LSU                   -2.485
+as.factor(constrainedfbsplays$Defense.Team.Name)Marshall              -1.190
+as.factor(constrainedfbsplays$Defense.Team.Name)Maryland              -1.216
+as.factor(constrainedfbsplays$Defense.Team.Name)Massachusetts          0.012
+as.factor(constrainedfbsplays$Defense.Team.Name)Memphis               -0.701
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (FL)            -1.335
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (OH)            -1.517
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan              -1.486
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan St.          -2.653
+as.factor(constrainedfbsplays$Defense.Team.Name)Middle Tenn.          -1.529
+as.factor(constrainedfbsplays$Defense.Team.Name)Minnesota             -0.858
+as.factor(constrainedfbsplays$Defense.Team.Name)Mississippi St.       -2.716
+as.factor(constrainedfbsplays$Defense.Team.Name)Missouri              -2.425
+as.factor(constrainedfbsplays$Defense.Team.Name)Navy                  -0.651
+as.factor(constrainedfbsplays$Defense.Team.Name)Nebraska              -3.050
+as.factor(constrainedfbsplays$Defense.Team.Name)Nevada                -1.366
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico            -1.203
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico St.        -2.278
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina        -1.541
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina St.    -2.147
+as.factor(constrainedfbsplays$Defense.Team.Name)North Texas           -1.425
+as.factor(constrainedfbsplays$Defense.Team.Name)Northern Ill.         -1.502
+as.factor(constrainedfbsplays$Defense.Team.Name)Northwestern          -1.748
+as.factor(constrainedfbsplays$Defense.Team.Name)Notre Dame            -1.302
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio                  -1.331
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio St.              -2.349
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma              -3.063
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma St.          -2.509
+as.factor(constrainedfbsplays$Defense.Team.Name)Ole Miss              -2.519
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon                -3.749
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon St.            -2.084
+as.factor(constrainedfbsplays$Defense.Team.Name)Penn St.              -2.419
+as.factor(constrainedfbsplays$Defense.Team.Name)Pittsburgh            -2.081
+as.factor(constrainedfbsplays$Defense.Team.Name)Purdue                -1.687
+as.factor(constrainedfbsplays$Defense.Team.Name)Rice                   0.171
+as.factor(constrainedfbsplays$Defense.Team.Name)Rutgers               -2.817
+as.factor(constrainedfbsplays$Defense.Team.Name)San Diego St.         -1.083
+as.factor(constrainedfbsplays$Defense.Team.Name)San Jose St.          -1.617
+as.factor(constrainedfbsplays$Defense.Team.Name)SMU                   -1.366
+as.factor(constrainedfbsplays$Defense.Team.Name)South Ala.            -0.486
+as.factor(constrainedfbsplays$Defense.Team.Name)South Carolina        -2.982
+as.factor(constrainedfbsplays$Defense.Team.Name)South Fla.            -2.363
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern California   -2.287
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern Miss.        -2.236
+as.factor(constrainedfbsplays$Defense.Team.Name)Stanford              -1.577
+as.factor(constrainedfbsplays$Defense.Team.Name)Syracuse              -1.378
+as.factor(constrainedfbsplays$Defense.Team.Name)TCU                   -3.744
+as.factor(constrainedfbsplays$Defense.Team.Name)Temple                -0.413
+as.factor(constrainedfbsplays$Defense.Team.Name)Tennessee             -1.429
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas                 -2.893
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas A&M             -2.252
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas St.             -1.208
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas Tech            -1.803
+as.factor(constrainedfbsplays$Defense.Team.Name)Toledo                -2.192
+as.factor(constrainedfbsplays$Defense.Team.Name)Troy                  -1.451
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulane                -0.674
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulsa                 -2.555
+as.factor(constrainedfbsplays$Defense.Team.Name)UAB                   -0.907
+as.factor(constrainedfbsplays$Defense.Team.Name)UCF                   -1.062
+as.factor(constrainedfbsplays$Defense.Team.Name)UCLA                  -2.465
+as.factor(constrainedfbsplays$Defense.Team.Name)UNLV                  -0.602
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah                  -2.391
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah St.              -1.675
+as.factor(constrainedfbsplays$Defense.Team.Name)UTEP                  -0.337
+as.factor(constrainedfbsplays$Defense.Team.Name)UTSA                  -1.047
+as.factor(constrainedfbsplays$Defense.Team.Name)Vanderbilt            -2.432
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia              -1.627
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia Tech         -2.594
+as.factor(constrainedfbsplays$Defense.Team.Name)Wake Forest           -1.184
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington            -1.041
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington St.        -1.624
+as.factor(constrainedfbsplays$Defense.Team.Name)West Virginia         -2.210
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Ky.           -0.774
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Mich.         -1.546
+as.factor(constrainedfbsplays$Defense.Team.Name)Wisconsin             -1.608
+as.factor(constrainedfbsplays$Defense.Team.Name)Wyoming               -1.910
+                                                                     Pr(>|t|)
+(Intercept)                                                          3.01e-09
+as.factor(constrainedfbsplays$Home.On.Offense)0                      0.415988
+as.factor(constrainedfbsplays$Home.On.Offense)1                      0.036106
+as.factor(constrainedfbsplays$Offense.Team.Name)Akron                0.052546
+as.factor(constrainedfbsplays$Offense.Team.Name)Alabama              0.919667
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona              0.682839
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona St.          0.666823
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas             0.594996
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas St.         0.414327
+as.factor(constrainedfbsplays$Offense.Team.Name)Army                 0.017476
+as.factor(constrainedfbsplays$Offense.Team.Name)Auburn               0.621923
+as.factor(constrainedfbsplays$Offense.Team.Name)Ball St.             0.513704
+as.factor(constrainedfbsplays$Offense.Team.Name)Baylor               0.878969
+as.factor(constrainedfbsplays$Offense.Team.Name)Boise St.            0.365524
+as.factor(constrainedfbsplays$Offense.Team.Name)Boston College       0.112501
+as.factor(constrainedfbsplays$Offense.Team.Name)Bowling Green        0.120265
+as.factor(constrainedfbsplays$Offense.Team.Name)Buffalo              0.058288
+as.factor(constrainedfbsplays$Offense.Team.Name)BYU                  0.956519
+as.factor(constrainedfbsplays$Offense.Team.Name)California           0.549243
+as.factor(constrainedfbsplays$Offense.Team.Name)Central Mich.        0.993702
+as.factor(constrainedfbsplays$Offense.Team.Name)Cincinnati           0.544591
+as.factor(constrainedfbsplays$Offense.Team.Name)Clemson              0.994706
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado             0.397124
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado St.         0.201724
+as.factor(constrainedfbsplays$Offense.Team.Name)Connecticut          0.057374
+as.factor(constrainedfbsplays$Offense.Team.Name)Duke                 0.085303
+as.factor(constrainedfbsplays$Offense.Team.Name)East Carolina        0.936613
+as.factor(constrainedfbsplays$Offense.Team.Name)Eastern Mich.        0.008609
+as.factor(constrainedfbsplays$Offense.Team.Name)FIU                  0.021703
+as.factor(constrainedfbsplays$Offense.Team.Name)Fla. Atlantic        0.175080
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida              0.597284
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida St.          0.670190
+as.factor(constrainedfbsplays$Offense.Team.Name)Fresno St.           0.567360
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia              0.774490
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia Tech         0.492957
+as.factor(constrainedfbsplays$Offense.Team.Name)Hawaii               0.343404
+as.factor(constrainedfbsplays$Offense.Team.Name)Houston              0.160664
+as.factor(constrainedfbsplays$Offense.Team.Name)Idaho                0.212021
+as.factor(constrainedfbsplays$Offense.Team.Name)Illinois             0.963770
+as.factor(constrainedfbsplays$Offense.Team.Name)Indiana              0.207573
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa                 0.928761
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa St.             0.103089
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas               0.261194
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas St.           0.529590
+as.factor(constrainedfbsplays$Offense.Team.Name)Kent St.             0.009219
+as.factor(constrainedfbsplays$Offense.Team.Name)Kentucky             0.412149
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Lafayette        0.328735
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Monroe           0.566843
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisiana Tech       0.075527
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisville           0.832234
+as.factor(constrainedfbsplays$Offense.Team.Name)LSU                  0.600411
+as.factor(constrainedfbsplays$Offense.Team.Name)Marshall             0.191001
+as.factor(constrainedfbsplays$Offense.Team.Name)Maryland             0.059553
+as.factor(constrainedfbsplays$Offense.Team.Name)Massachusetts        0.031070
+as.factor(constrainedfbsplays$Offense.Team.Name)Memphis              0.095368
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (FL)           0.062182
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (OH)           0.129012
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan             0.197472
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan St.         0.671370
+as.factor(constrainedfbsplays$Offense.Team.Name)Middle Tenn.         0.062623
+as.factor(constrainedfbsplays$Offense.Team.Name)Minnesota            0.300310
+as.factor(constrainedfbsplays$Offense.Team.Name)Mississippi St.      0.090839
+as.factor(constrainedfbsplays$Offense.Team.Name)Missouri             0.476540
+as.factor(constrainedfbsplays$Offense.Team.Name)Navy                 0.382250
+as.factor(constrainedfbsplays$Offense.Team.Name)Nebraska             0.993125
+as.factor(constrainedfbsplays$Offense.Team.Name)Nevada               0.489098
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico           0.087854
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico St.       0.031068
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina       0.158469
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina St.   0.126527
+as.factor(constrainedfbsplays$Offense.Team.Name)North Texas          0.012517
+as.factor(constrainedfbsplays$Offense.Team.Name)Northern Ill.        0.950695
+as.factor(constrainedfbsplays$Offense.Team.Name)Northwestern         0.887771
+as.factor(constrainedfbsplays$Offense.Team.Name)Notre Dame           0.910315
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio                 0.129765
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio St.             0.808548
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma             0.429634
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma St.         0.931758
+as.factor(constrainedfbsplays$Offense.Team.Name)Ole Miss             0.985997
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon               0.288313
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon St.           0.134103
+as.factor(constrainedfbsplays$Offense.Team.Name)Penn St.             0.323823
+as.factor(constrainedfbsplays$Offense.Team.Name)Pittsburgh           0.216984
+as.factor(constrainedfbsplays$Offense.Team.Name)Purdue               0.151152
+as.factor(constrainedfbsplays$Offense.Team.Name)Rice                 0.351225
+as.factor(constrainedfbsplays$Offense.Team.Name)Rutgers              0.424543
+as.factor(constrainedfbsplays$Offense.Team.Name)San Diego St.        0.451094
+as.factor(constrainedfbsplays$Offense.Team.Name)San Jose St.         0.664632
+as.factor(constrainedfbsplays$Offense.Team.Name)SMU                  0.257467
+as.factor(constrainedfbsplays$Offense.Team.Name)South Ala.           0.699687
+as.factor(constrainedfbsplays$Offense.Team.Name)South Carolina       0.466000
+as.factor(constrainedfbsplays$Offense.Team.Name)South Fla.           0.202792
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern California  0.907134
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern Miss.       0.565820
+as.factor(constrainedfbsplays$Offense.Team.Name)Stanford             0.681881
+as.factor(constrainedfbsplays$Offense.Team.Name)Syracuse             0.354014
+as.factor(constrainedfbsplays$Offense.Team.Name)TCU                  0.256752
+as.factor(constrainedfbsplays$Offense.Team.Name)Temple               0.035361
+as.factor(constrainedfbsplays$Offense.Team.Name)Tennessee            0.266345
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas                0.447188
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas A&M            0.050919
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas St.            0.301524
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas Tech           0.176035
+as.factor(constrainedfbsplays$Offense.Team.Name)Toledo               0.458081
+as.factor(constrainedfbsplays$Offense.Team.Name)Troy                 0.340003
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulane               0.029249
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulsa                0.335782
+as.factor(constrainedfbsplays$Offense.Team.Name)UAB                  0.442767
+as.factor(constrainedfbsplays$Offense.Team.Name)UCF                  0.396019
+as.factor(constrainedfbsplays$Offense.Team.Name)UCLA                 0.189026
+as.factor(constrainedfbsplays$Offense.Team.Name)UNLV                 0.101902
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah                 0.130208
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah St.             0.420144
+as.factor(constrainedfbsplays$Offense.Team.Name)UTEP                 0.298429
+as.factor(constrainedfbsplays$Offense.Team.Name)UTSA                 0.955429
+as.factor(constrainedfbsplays$Offense.Team.Name)Vanderbilt           0.027923
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia             0.366497
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia Tech        0.569455
+as.factor(constrainedfbsplays$Offense.Team.Name)Wake Forest          0.192338
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington           0.742068
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington St.       0.154392
+as.factor(constrainedfbsplays$Offense.Team.Name)West Virginia        0.865644
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Ky.          0.302684
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Mich.        0.088755
+as.factor(constrainedfbsplays$Offense.Team.Name)Wisconsin            0.734339
+as.factor(constrainedfbsplays$Offense.Team.Name)Wyoming              0.374319
+as.factor(constrainedfbsplays$Defense.Team.Name)Akron                0.321150
+as.factor(constrainedfbsplays$Defense.Team.Name)Alabama              6.44e-05
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona              0.033523
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona St.          0.005280
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas             0.009057
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas St.         0.183474
+as.factor(constrainedfbsplays$Defense.Team.Name)Army                 0.553901
+as.factor(constrainedfbsplays$Defense.Team.Name)Auburn               0.009581
+as.factor(constrainedfbsplays$Defense.Team.Name)Ball St.             0.773609
+as.factor(constrainedfbsplays$Defense.Team.Name)Baylor               0.171484
+as.factor(constrainedfbsplays$Defense.Team.Name)Boise St.            0.017083
+as.factor(constrainedfbsplays$Defense.Team.Name)Boston College       0.025255
+as.factor(constrainedfbsplays$Defense.Team.Name)Bowling Green        0.194769
+as.factor(constrainedfbsplays$Defense.Team.Name)Buffalo              0.070637
+as.factor(constrainedfbsplays$Defense.Team.Name)BYU                  0.048116
+as.factor(constrainedfbsplays$Defense.Team.Name)California           0.037252
+as.factor(constrainedfbsplays$Defense.Team.Name)Central Mich.        0.767322
+as.factor(constrainedfbsplays$Defense.Team.Name)Cincinnati           0.011221
+as.factor(constrainedfbsplays$Defense.Team.Name)Clemson              0.017104
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado             0.058470
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado St.         0.364410
+as.factor(constrainedfbsplays$Defense.Team.Name)Connecticut          0.003507
+as.factor(constrainedfbsplays$Defense.Team.Name)Duke                 0.332805
+as.factor(constrainedfbsplays$Defense.Team.Name)East Carolina        0.042485
+as.factor(constrainedfbsplays$Defense.Team.Name)Eastern Mich.        0.646951
+as.factor(constrainedfbsplays$Defense.Team.Name)FIU                  0.002544
+as.factor(constrainedfbsplays$Defense.Team.Name)Fla. Atlantic        0.232495
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida              0.002961
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida St.          0.010594
+as.factor(constrainedfbsplays$Defense.Team.Name)Fresno St.           0.188063
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia              0.004958
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia Tech         0.083549
+as.factor(constrainedfbsplays$Defense.Team.Name)Hawaii               0.091255
+as.factor(constrainedfbsplays$Defense.Team.Name)Houston              0.465239
+as.factor(constrainedfbsplays$Defense.Team.Name)Idaho                0.030800
+as.factor(constrainedfbsplays$Defense.Team.Name)Illinois             0.007991
+as.factor(constrainedfbsplays$Defense.Team.Name)Indiana              0.256509
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa                 0.073069
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa St.             0.070861
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas               0.012748
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas St.           0.076311
+as.factor(constrainedfbsplays$Defense.Team.Name)Kent St.             0.036873
+as.factor(constrainedfbsplays$Defense.Team.Name)Kentucky             0.263776
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Lafayette        0.505093
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Monroe           0.058992
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisiana Tech       0.053142
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisville           0.069606
+as.factor(constrainedfbsplays$Defense.Team.Name)LSU                  0.012959
+as.factor(constrainedfbsplays$Defense.Team.Name)Marshall             0.234079
+as.factor(constrainedfbsplays$Defense.Team.Name)Maryland             0.223980
+as.factor(constrainedfbsplays$Defense.Team.Name)Massachusetts        0.990743
+as.factor(constrainedfbsplays$Defense.Team.Name)Memphis              0.483575
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (FL)           0.181895
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (OH)           0.129270
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan             0.137201
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan St.         0.007980
+as.factor(constrainedfbsplays$Defense.Team.Name)Middle Tenn.         0.126347
+as.factor(constrainedfbsplays$Defense.Team.Name)Minnesota            0.391004
+as.factor(constrainedfbsplays$Defense.Team.Name)Mississippi St.      0.006610
+as.factor(constrainedfbsplays$Defense.Team.Name)Missouri             0.015293
+as.factor(constrainedfbsplays$Defense.Team.Name)Navy                 0.514869
+as.factor(constrainedfbsplays$Defense.Team.Name)Nebraska             0.002288
+as.factor(constrainedfbsplays$Defense.Team.Name)Nevada               0.171799
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico           0.228995
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico St.       0.022698
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina       0.123360
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina St.   0.031818
+as.factor(constrainedfbsplays$Defense.Team.Name)North Texas          0.154237
+as.factor(constrainedfbsplays$Defense.Team.Name)Northern Ill.        0.133061
+as.factor(constrainedfbsplays$Defense.Team.Name)Northwestern         0.080413
+as.factor(constrainedfbsplays$Defense.Team.Name)Notre Dame           0.192955
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio                 0.183265
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio St.             0.018844
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma             0.002189
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma St.         0.012091
+as.factor(constrainedfbsplays$Defense.Team.Name)Ole Miss             0.011770
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon               0.000177
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon St.           0.037184
+as.factor(constrainedfbsplays$Defense.Team.Name)Penn St.             0.015546
+as.factor(constrainedfbsplays$Defense.Team.Name)Pittsburgh           0.037389
+as.factor(constrainedfbsplays$Defense.Team.Name)Purdue               0.091541
+as.factor(constrainedfbsplays$Defense.Team.Name)Rice                 0.864172
+as.factor(constrainedfbsplays$Defense.Team.Name)Rutgers              0.004855
+as.factor(constrainedfbsplays$Defense.Team.Name)San Diego St.        0.278615
+as.factor(constrainedfbsplays$Defense.Team.Name)San Jose St.         0.105937
+as.factor(constrainedfbsplays$Defense.Team.Name)SMU                  0.172074
+as.factor(constrainedfbsplays$Defense.Team.Name)South Ala.           0.627189
+as.factor(constrainedfbsplays$Defense.Team.Name)South Carolina       0.002866
+as.factor(constrainedfbsplays$Defense.Team.Name)South Fla.           0.018125
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern California  0.022221
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern Miss.       0.025324
+as.factor(constrainedfbsplays$Defense.Team.Name)Stanford             0.114911
+as.factor(constrainedfbsplays$Defense.Team.Name)Syracuse             0.168079
+as.factor(constrainedfbsplays$Defense.Team.Name)TCU                  0.000181
+as.factor(constrainedfbsplays$Defense.Team.Name)Temple               0.679510
+as.factor(constrainedfbsplays$Defense.Team.Name)Tennessee            0.153038
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas                0.003812
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas A&M            0.024309
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas St.            0.227165
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas Tech           0.071390
+as.factor(constrainedfbsplays$Defense.Team.Name)Toledo               0.028360
+as.factor(constrainedfbsplays$Defense.Team.Name)Troy                 0.146721
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulane               0.500385
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulsa                0.010609
+as.factor(constrainedfbsplays$Defense.Team.Name)UAB                  0.364282
+as.factor(constrainedfbsplays$Defense.Team.Name)UCF                  0.288014
+as.factor(constrainedfbsplays$Defense.Team.Name)UCLA                 0.013690
+as.factor(constrainedfbsplays$Defense.Team.Name)UNLV                 0.547330
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah                 0.016800
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah St.             0.093982
+as.factor(constrainedfbsplays$Defense.Team.Name)UTEP                 0.735855
+as.factor(constrainedfbsplays$Defense.Team.Name)UTSA                 0.295063
+as.factor(constrainedfbsplays$Defense.Team.Name)Vanderbilt           0.014997
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia             0.103741
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia Tech        0.009487
+as.factor(constrainedfbsplays$Defense.Team.Name)Wake Forest          0.236426
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington           0.297681
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington St.       0.104380
+as.factor(constrainedfbsplays$Defense.Team.Name)West Virginia        0.027131
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Ky.          0.439089
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Mich.        0.122099
+as.factor(constrainedfbsplays$Defense.Team.Name)Wisconsin            0.107878
+as.factor(constrainedfbsplays$Defense.Team.Name)Wyoming              0.056102
+                                                                        
+(Intercept)                                                          ***
+as.factor(constrainedfbsplays$Home.On.Offense)0                         
+as.factor(constrainedfbsplays$Home.On.Offense)1                      *  
+as.factor(constrainedfbsplays$Offense.Team.Name)Akron                .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Alabama                 
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona                 
+as.factor(constrainedfbsplays$Offense.Team.Name)Arizona St.             
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas                
+as.factor(constrainedfbsplays$Offense.Team.Name)Arkansas St.            
+as.factor(constrainedfbsplays$Offense.Team.Name)Army                 *  
+as.factor(constrainedfbsplays$Offense.Team.Name)Auburn                  
+as.factor(constrainedfbsplays$Offense.Team.Name)Ball St.                
+as.factor(constrainedfbsplays$Offense.Team.Name)Baylor                  
+as.factor(constrainedfbsplays$Offense.Team.Name)Boise St.               
+as.factor(constrainedfbsplays$Offense.Team.Name)Boston College          
+as.factor(constrainedfbsplays$Offense.Team.Name)Bowling Green           
+as.factor(constrainedfbsplays$Offense.Team.Name)Buffalo              .  
+as.factor(constrainedfbsplays$Offense.Team.Name)BYU                     
+as.factor(constrainedfbsplays$Offense.Team.Name)California              
+as.factor(constrainedfbsplays$Offense.Team.Name)Central Mich.           
+as.factor(constrainedfbsplays$Offense.Team.Name)Cincinnati              
+as.factor(constrainedfbsplays$Offense.Team.Name)Clemson                 
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado                
+as.factor(constrainedfbsplays$Offense.Team.Name)Colorado St.            
+as.factor(constrainedfbsplays$Offense.Team.Name)Connecticut          .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Duke                 .  
+as.factor(constrainedfbsplays$Offense.Team.Name)East Carolina           
+as.factor(constrainedfbsplays$Offense.Team.Name)Eastern Mich.        ** 
+as.factor(constrainedfbsplays$Offense.Team.Name)FIU                  *  
+as.factor(constrainedfbsplays$Offense.Team.Name)Fla. Atlantic           
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida                 
+as.factor(constrainedfbsplays$Offense.Team.Name)Florida St.             
+as.factor(constrainedfbsplays$Offense.Team.Name)Fresno St.              
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia                 
+as.factor(constrainedfbsplays$Offense.Team.Name)Georgia Tech            
+as.factor(constrainedfbsplays$Offense.Team.Name)Hawaii                  
+as.factor(constrainedfbsplays$Offense.Team.Name)Houston                 
+as.factor(constrainedfbsplays$Offense.Team.Name)Idaho                   
+as.factor(constrainedfbsplays$Offense.Team.Name)Illinois                
+as.factor(constrainedfbsplays$Offense.Team.Name)Indiana                 
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa                    
+as.factor(constrainedfbsplays$Offense.Team.Name)Iowa St.                
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas                  
+as.factor(constrainedfbsplays$Offense.Team.Name)Kansas St.              
+as.factor(constrainedfbsplays$Offense.Team.Name)Kent St.             ** 
+as.factor(constrainedfbsplays$Offense.Team.Name)Kentucky                
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Lafayette           
+as.factor(constrainedfbsplays$Offense.Team.Name)La.-Monroe              
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisiana Tech       .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Louisville              
+as.factor(constrainedfbsplays$Offense.Team.Name)LSU                     
+as.factor(constrainedfbsplays$Offense.Team.Name)Marshall                
+as.factor(constrainedfbsplays$Offense.Team.Name)Maryland             .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Massachusetts        *  
+as.factor(constrainedfbsplays$Offense.Team.Name)Memphis              .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (FL)           .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Miami (OH)              
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan                
+as.factor(constrainedfbsplays$Offense.Team.Name)Michigan St.            
+as.factor(constrainedfbsplays$Offense.Team.Name)Middle Tenn.         .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Minnesota               
+as.factor(constrainedfbsplays$Offense.Team.Name)Mississippi St.      .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Missouri                
+as.factor(constrainedfbsplays$Offense.Team.Name)Navy                    
+as.factor(constrainedfbsplays$Offense.Team.Name)Nebraska                
+as.factor(constrainedfbsplays$Offense.Team.Name)Nevada                  
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico           .  
+as.factor(constrainedfbsplays$Offense.Team.Name)New Mexico St.       *  
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina          
+as.factor(constrainedfbsplays$Offense.Team.Name)North Carolina St.      
+as.factor(constrainedfbsplays$Offense.Team.Name)North Texas          *  
+as.factor(constrainedfbsplays$Offense.Team.Name)Northern Ill.           
+as.factor(constrainedfbsplays$Offense.Team.Name)Northwestern            
+as.factor(constrainedfbsplays$Offense.Team.Name)Notre Dame              
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio                    
+as.factor(constrainedfbsplays$Offense.Team.Name)Ohio St.                
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma                
+as.factor(constrainedfbsplays$Offense.Team.Name)Oklahoma St.            
+as.factor(constrainedfbsplays$Offense.Team.Name)Ole Miss                
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon                  
+as.factor(constrainedfbsplays$Offense.Team.Name)Oregon St.              
+as.factor(constrainedfbsplays$Offense.Team.Name)Penn St.                
+as.factor(constrainedfbsplays$Offense.Team.Name)Pittsburgh              
+as.factor(constrainedfbsplays$Offense.Team.Name)Purdue                  
+as.factor(constrainedfbsplays$Offense.Team.Name)Rice                    
+as.factor(constrainedfbsplays$Offense.Team.Name)Rutgers                 
+as.factor(constrainedfbsplays$Offense.Team.Name)San Diego St.           
+as.factor(constrainedfbsplays$Offense.Team.Name)San Jose St.            
+as.factor(constrainedfbsplays$Offense.Team.Name)SMU                     
+as.factor(constrainedfbsplays$Offense.Team.Name)South Ala.              
+as.factor(constrainedfbsplays$Offense.Team.Name)South Carolina          
+as.factor(constrainedfbsplays$Offense.Team.Name)South Fla.              
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern California     
+as.factor(constrainedfbsplays$Offense.Team.Name)Southern Miss.          
+as.factor(constrainedfbsplays$Offense.Team.Name)Stanford                
+as.factor(constrainedfbsplays$Offense.Team.Name)Syracuse                
+as.factor(constrainedfbsplays$Offense.Team.Name)TCU                     
+as.factor(constrainedfbsplays$Offense.Team.Name)Temple               *  
+as.factor(constrainedfbsplays$Offense.Team.Name)Tennessee               
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas                   
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas A&M            .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas St.               
+as.factor(constrainedfbsplays$Offense.Team.Name)Texas Tech              
+as.factor(constrainedfbsplays$Offense.Team.Name)Toledo                  
+as.factor(constrainedfbsplays$Offense.Team.Name)Troy                    
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulane               *  
+as.factor(constrainedfbsplays$Offense.Team.Name)Tulsa                   
+as.factor(constrainedfbsplays$Offense.Team.Name)UAB                     
+as.factor(constrainedfbsplays$Offense.Team.Name)UCF                     
+as.factor(constrainedfbsplays$Offense.Team.Name)UCLA                    
+as.factor(constrainedfbsplays$Offense.Team.Name)UNLV                    
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah                    
+as.factor(constrainedfbsplays$Offense.Team.Name)Utah St.                
+as.factor(constrainedfbsplays$Offense.Team.Name)UTEP                    
+as.factor(constrainedfbsplays$Offense.Team.Name)UTSA                    
+as.factor(constrainedfbsplays$Offense.Team.Name)Vanderbilt           *  
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia                
+as.factor(constrainedfbsplays$Offense.Team.Name)Virginia Tech           
+as.factor(constrainedfbsplays$Offense.Team.Name)Wake Forest             
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington              
+as.factor(constrainedfbsplays$Offense.Team.Name)Washington St.          
+as.factor(constrainedfbsplays$Offense.Team.Name)West Virginia           
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Ky.             
+as.factor(constrainedfbsplays$Offense.Team.Name)Western Mich.        .  
+as.factor(constrainedfbsplays$Offense.Team.Name)Wisconsin               
+as.factor(constrainedfbsplays$Offense.Team.Name)Wyoming                 
+as.factor(constrainedfbsplays$Defense.Team.Name)Akron                   
+as.factor(constrainedfbsplays$Defense.Team.Name)Alabama              ***
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona              *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Arizona St.          ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas             ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Arkansas St.            
+as.factor(constrainedfbsplays$Defense.Team.Name)Army                    
+as.factor(constrainedfbsplays$Defense.Team.Name)Auburn               ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Ball St.                
+as.factor(constrainedfbsplays$Defense.Team.Name)Baylor                  
+as.factor(constrainedfbsplays$Defense.Team.Name)Boise St.            *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Boston College       *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Bowling Green           
+as.factor(constrainedfbsplays$Defense.Team.Name)Buffalo              .  
+as.factor(constrainedfbsplays$Defense.Team.Name)BYU                  *  
+as.factor(constrainedfbsplays$Defense.Team.Name)California           *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Central Mich.           
+as.factor(constrainedfbsplays$Defense.Team.Name)Cincinnati           *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Clemson              *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado             .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Colorado St.            
+as.factor(constrainedfbsplays$Defense.Team.Name)Connecticut          ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Duke                    
+as.factor(constrainedfbsplays$Defense.Team.Name)East Carolina        *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Eastern Mich.           
+as.factor(constrainedfbsplays$Defense.Team.Name)FIU                  ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Fla. Atlantic           
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida              ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Florida St.          *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Fresno St.              
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia              ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Georgia Tech         .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Hawaii               .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Houston                 
+as.factor(constrainedfbsplays$Defense.Team.Name)Idaho                *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Illinois             ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Indiana                 
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa                 .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Iowa St.             .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas               *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Kansas St.           .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Kent St.             *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Kentucky                
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Lafayette           
+as.factor(constrainedfbsplays$Defense.Team.Name)La.-Monroe           .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisiana Tech       .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Louisville           .  
+as.factor(constrainedfbsplays$Defense.Team.Name)LSU                  *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Marshall                
+as.factor(constrainedfbsplays$Defense.Team.Name)Maryland                
+as.factor(constrainedfbsplays$Defense.Team.Name)Massachusetts           
+as.factor(constrainedfbsplays$Defense.Team.Name)Memphis                 
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (FL)              
+as.factor(constrainedfbsplays$Defense.Team.Name)Miami (OH)              
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan                
+as.factor(constrainedfbsplays$Defense.Team.Name)Michigan St.         ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Middle Tenn.            
+as.factor(constrainedfbsplays$Defense.Team.Name)Minnesota               
+as.factor(constrainedfbsplays$Defense.Team.Name)Mississippi St.      ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Missouri             *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Navy                    
+as.factor(constrainedfbsplays$Defense.Team.Name)Nebraska             ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Nevada                  
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico              
+as.factor(constrainedfbsplays$Defense.Team.Name)New Mexico St.       *  
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina          
+as.factor(constrainedfbsplays$Defense.Team.Name)North Carolina St.   *  
+as.factor(constrainedfbsplays$Defense.Team.Name)North Texas             
+as.factor(constrainedfbsplays$Defense.Team.Name)Northern Ill.           
+as.factor(constrainedfbsplays$Defense.Team.Name)Northwestern         .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Notre Dame              
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio                    
+as.factor(constrainedfbsplays$Defense.Team.Name)Ohio St.             *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma             ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Oklahoma St.         *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Ole Miss             *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon               ***
+as.factor(constrainedfbsplays$Defense.Team.Name)Oregon St.           *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Penn St.             *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Pittsburgh           *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Purdue               .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Rice                    
+as.factor(constrainedfbsplays$Defense.Team.Name)Rutgers              ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)San Diego St.           
+as.factor(constrainedfbsplays$Defense.Team.Name)San Jose St.            
+as.factor(constrainedfbsplays$Defense.Team.Name)SMU                     
+as.factor(constrainedfbsplays$Defense.Team.Name)South Ala.              
+as.factor(constrainedfbsplays$Defense.Team.Name)South Carolina       ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)South Fla.           *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern California  *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Southern Miss.       *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Stanford                
+as.factor(constrainedfbsplays$Defense.Team.Name)Syracuse                
+as.factor(constrainedfbsplays$Defense.Team.Name)TCU                  ***
+as.factor(constrainedfbsplays$Defense.Team.Name)Temple                  
+as.factor(constrainedfbsplays$Defense.Team.Name)Tennessee               
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas                ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas A&M            *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas St.               
+as.factor(constrainedfbsplays$Defense.Team.Name)Texas Tech           .  
+as.factor(constrainedfbsplays$Defense.Team.Name)Toledo               *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Troy                    
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulane                  
+as.factor(constrainedfbsplays$Defense.Team.Name)Tulsa                *  
+as.factor(constrainedfbsplays$Defense.Team.Name)UAB                     
+as.factor(constrainedfbsplays$Defense.Team.Name)UCF                     
+as.factor(constrainedfbsplays$Defense.Team.Name)UCLA                 *  
+as.factor(constrainedfbsplays$Defense.Team.Name)UNLV                    
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah                 *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Utah St.             .  
+as.factor(constrainedfbsplays$Defense.Team.Name)UTEP                    
+as.factor(constrainedfbsplays$Defense.Team.Name)UTSA                    
+as.factor(constrainedfbsplays$Defense.Team.Name)Vanderbilt           *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia                
+as.factor(constrainedfbsplays$Defense.Team.Name)Virginia Tech        ** 
+as.factor(constrainedfbsplays$Defense.Team.Name)Wake Forest             
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington              
+as.factor(constrainedfbsplays$Defense.Team.Name)Washington St.          
+as.factor(constrainedfbsplays$Defense.Team.Name)West Virginia        *  
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Ky.             
+as.factor(constrainedfbsplays$Defense.Team.Name)Western Mich.           
+as.factor(constrainedfbsplays$Defense.Team.Name)Wisconsin               
+as.factor(constrainedfbsplays$Defense.Team.Name)Wyoming              .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.76 on 751843 degrees of freedom
+Multiple R-squared:  0.0004617,	Adjusted R-squared:  0.000132 
+F-statistic:   1.4 on 248 and 751843 DF,  p-value: 3.142e-05
+
+> 
+> anova(reg7)
+Analysis of Variance Table
+
+Response: constrainedfbsplays$allCEP
+                                                     Df  Sum Sq Mean Sq F value
+as.factor(constrainedfbsplays$Home.On.Offense)        2      51 25.3847  8.1987
+as.factor(constrainedfbsplays$Offense.Team.Name)    123     558  4.5383  1.4658
+as.factor(constrainedfbsplays$Defense.Team.Name)    123     466  3.7918  1.2247
+Residuals                                        751843 2327837  3.0962        
+                                                    Pr(>F)    
+as.factor(constrainedfbsplays$Home.On.Offense)   0.0002750 ***
+as.factor(constrainedfbsplays$Offense.Team.Name) 0.0005904 ***
+as.factor(constrainedfbsplays$Defense.Team.Name) 0.0458471 *  
+Residuals                                                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> #be sure to put save command on every file, to keep the regression we generate in BASH
+> save.image("~/Fellow2016.RData")
+> 
+> proc.time()
+   user  system elapsed 
+205.358   2.894 208.496 

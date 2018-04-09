@@ -1,0 +1,64 @@
+
+R version 3.3.0 (2016-05-03) -- "Supposedly Educational"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> options(stringsAsFactors=FALSE)
+> rm(list = ls())
+> constrainedfbsplays = read.csv("constrainedfbsplays.csv")
+> 
+> #regressional model with CEP predicted by run/pass
+> reg1= lm(constrainedfbsplays$allCEP~constrainedfbsplays$Play.Type3)
+> summary(reg1)
+
+Call:
+lm(formula = constrainedfbsplays$allCEP ~ constrainedfbsplays$Play.Type3)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.1127  -0.5228   0.0239   0.8324  12.3739 
+
+Coefficients:
+                                    Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                        -0.224201   0.002924  -76.67   <2e-16 ***
+constrainedfbsplays$Play.Type3RUSH -0.095330   0.004060  -23.48   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.759 on 752090 degrees of freedom
+Multiple R-squared:  0.0007326,	Adjusted R-squared:  0.0007313 
+F-statistic: 551.4 on 1 and 752090 DF,  p-value: < 2.2e-16
+
+> 
+> anova(reg1)
+Analysis of Variance Table
+
+Response: constrainedfbsplays$allCEP
+                                   Df  Sum Sq Mean Sq F value    Pr(>F)    
+constrainedfbsplays$Play.Type3      1    1706 1706.26  551.42 < 2.2e-16 ***
+Residuals                      752090 2327207    3.09                      
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> #be sure to put save command on every file, to keep the regression we generate in BASH
+> save.image("~/Fellow2016.reg1.RData")
+> 
+> proc.time()
+   user  system elapsed 
+ 10.602 184.837 994.692 

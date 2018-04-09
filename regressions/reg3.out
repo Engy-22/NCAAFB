@@ -1,0 +1,77 @@
+
+R version 3.3.0 (2016-05-03) -- "Supposedly Educational"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> options(stringsAsFactors=FALSE)
+> rm(list = ls())
+> constrainedfbsplays = read.csv("constrainedfbsplays.csv")
+> 
+> # reg model using run/pass and home-on-offense as well as home-on-offense interaction with season
+> reg3= lm(constrainedfbsplays$allCEP~constrainedfbsplays$Play.Type3 + as.factor(constrainedfbsplays$Home.On.Offense))
+> summary(reg3)
+
+Call:
+lm(formula = constrainedfbsplays$allCEP ~ constrainedfbsplays$Play.Type3 + 
+    as.factor(constrainedfbsplays$Home.On.Offense))
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-13.1221  -0.5226   0.0238   0.8328  12.3644 
+
+Coefficients:
+                                                  Estimate Std. Error t value
+(Intercept)                                     -0.2328306  0.0081282 -28.645
+constrainedfbsplays$Play.Type3RUSH              -0.0956440  0.0040602 -23.556
+as.factor(constrainedfbsplays$Home.On.Offense)0  0.0003179  0.0084050   0.038
+as.factor(constrainedfbsplays$Home.On.Offense)1  0.0184017  0.0083984   2.191
+                                                Pr(>|t|)    
+(Intercept)                                       <2e-16 ***
+constrainedfbsplays$Play.Type3RUSH                <2e-16 ***
+as.factor(constrainedfbsplays$Home.On.Offense)0   0.9698    
+as.factor(constrainedfbsplays$Home.On.Offense)1   0.0284 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.759 on 752088 degrees of freedom
+Multiple R-squared:  0.0007591,	Adjusted R-squared:  0.0007551 
+F-statistic: 190.4 on 3 and 752088 DF,  p-value: < 2.2e-16
+
+> 
+> anova(reg3)
+Analysis of Variance Table
+
+Response: constrainedfbsplays$allCEP
+                                                   Df  Sum Sq Mean Sq  F value
+constrainedfbsplays$Play.Type3                      1    1706 1706.26 551.4316
+as.factor(constrainedfbsplays$Home.On.Offense)      2      62   30.76   9.9411
+Residuals                                      752088 2327145    3.09         
+                                                  Pr(>F)    
+constrainedfbsplays$Play.Type3                 < 2.2e-16 ***
+as.factor(constrainedfbsplays$Home.On.Offense) 4.816e-05 ***
+Residuals                                                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> 
+> #be sure to put save command on every file, to keep the regression we generate in BASH
+> save.image("~/Fellow2016.RData")
+> 
+> proc.time()
+    user   system  elapsed 
+  12.295  208.099 1072.836 

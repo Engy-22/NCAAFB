@@ -1,0 +1,48 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library("MASS", lib.loc="/usr/lib64/R/library")
+> 
+> options(stringsAsFactors=FALSE)
+> rm(list = ls())
+> 
+> constrainedquarterfbsplays = read.csv("constrainedquarterfbsplays.csv")
+> 
+> mmquarterplaytype3=model.matrix(~constrainedquarterfbsplays$Play.Type3-1)
+> mmquarterhomeonOff=model.matrix(~constrainedquarterfbsplays$Home.On.Offense-1)
+> mmquarterOff=model.matrix(~constrainedquarterfbsplays$Offense.Team.Name-1)
+> mmquarterDef=model.matrix(~constrainedquarterfbsplays$Defense.Team.Name-1)
+> mmquarterSeason=model.matrix(~as.factor(constrainedquarterfbsplays$Season)-1)
+> 
+> # reg model using run pass and offense team code/season interaction and defense team code/sesason interaction as predictors
+> reg12ridge = lm.ridge(constrainedquarterfbsplays$allCEP~mmquarterplaytype3 + mmquarterhomeonOff + mmquarterOff + mmquarterDef + mmquarterSeason -1,lambda=1000)
+> 
+> #get the run effect
+> coef(reg12ridge)[2]-coef(reg12ridge)[1]
+mmquarterplaytype3constrainedquarterfbsplays$Play.Type3RUSH 
+                                                -0.09382601 
+> 
+> #be sure to put save command on every file, to keep the regression we generate in BASH
+> save.image("~/Fellow2016.RData")
+> 
+> proc.time()
+   user  system elapsed 
+601.793   6.548 610.359 

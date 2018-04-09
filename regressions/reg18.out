@@ -1,0 +1,32 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-redhat-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library("MASS", lib.loc="/usr/lib64/R/library")
+> 
+> # ridge rendition of reg 15
+> options(stringsAsFactors=FALSE)
+> rm(list = ls())
+> constrainedscore14fbsplays = read.csv("constrainedscore21fbsplays.csv")
+> 
+> constrainedqscore14fbsplays2010 = filter(constrainedquarterscore14fbsplays, Season==2010)
+Error in as.ts(x) : object 'constrainedquarterscore14fbsplays' not found
+Calls: filter -> as.ts
+Execution halted
